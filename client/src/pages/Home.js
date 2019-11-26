@@ -1,9 +1,15 @@
 import React from "react";
+import { TextInput, Container } from 'react-materialize';
 
 
-function Home() {
+
+function Home({onChange, value}) {
   return (
-    <h1>Welcome Home</h1>
+    <Container>
+      <h1 className="center">Welcome Home</h1>
+      <TextInput placeholder="enter a search term" onChange={onChange} value={value}/>
+
+    </Container>
   );
 }
 
