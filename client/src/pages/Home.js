@@ -1,16 +1,36 @@
 import React from "react";
-import { TextInput, Container } from 'react-materialize';
+import { TextInput, Container, Button } from 'react-materialize';
 
 
 
-function Home({onChange, value}) {
-  return (
-    <Container>
-      <h1 className="center">Welcome Home</h1>
-      <TextInput placeholder="enter a search term" onChange={onChange} value={value}/>
+class Home extends React.Component {
+  state = {
+    search: ''
+  }
 
-    </Container>
-  );
+  handleInputChange = event => {
+    this.setState({ search: event.target.value });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    
+  };
+
+
+
+  render() {
+    return (
+      <Container>
+        <h1 className="center">Welcome Home</h1>
+        <TextInput placeholder="enter a search term" 
+          onChange={this.handleInputChange}
+        />
+        <Button>Submit</Button>
+      </Container>
+    );
+
+  }
 }
 
 export default Home;
