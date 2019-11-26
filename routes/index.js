@@ -1,10 +1,13 @@
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
+const userController = require("../controllers/userController")
+
+
 
 router.get('/login', (req, res) => console.log('login get route'));
 
-router.post('/login', (req, res) => res.send('login post route'));
+router.post('/login', (req, res) => res.send(req.body));
 
 router.post('/signup', (req, res) => res.send('signup posted'));
 
