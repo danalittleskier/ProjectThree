@@ -1,6 +1,8 @@
 const path = require("path");
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
 const apiRoutes = require("./api");
+
 
 router.get('/login', (req, res) => console.log('login get route'));
 
