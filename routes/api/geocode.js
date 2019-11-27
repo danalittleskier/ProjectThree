@@ -7,7 +7,7 @@ function callAPIs(city) {
 
   var geocodeURL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
   var geocodeAddress = city;
-  var geocodeKey = "&key=AIzaSyC3cYRKltmrXO0kk_aKwxAU6zd_QYBv21Q";
+  var geocodeKey = "&key=" + process.env.GEOCODE;
   var geocodeRequest = geocodeURL + geocodeAddress + geocodeKey;
   axios.get(geocodeRequest)
     .then(function (response) {
