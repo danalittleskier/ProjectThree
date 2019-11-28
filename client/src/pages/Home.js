@@ -39,9 +39,9 @@ class Home extends React.Component {
   render() {
     return (
       <Container>
-        <h1 className="center">Welcome Home</h1>
+        <h3 className="center">Snow Station Report</h3>
         <TextInput 
-        placeholder="enter a search term"
+        placeholder="enter a city to get the closest snow station report"
           onChange={this.handleInputChange}
           name="search"
           id="search"
@@ -57,8 +57,11 @@ class Home extends React.Component {
                   <ResultCard 
                     key={result.station_information.triplet}
                     station={result.station_information.name}
+                    distance={Math.floor(result.distance)}
                     elevation={result.station_information.elevation}
-                    snowpack={result.data[0]['Change In Snow Depth (in)']}
+                    snowpack={result.data[0]['Snow Depth (in)']}
+                    newsnow={result.data[0]['Change In Snow Depth (in)']}
+                    temperature={result.data[0]['Observed Air Temperature (degrees farenheit)']}
                   />
               ))}
             

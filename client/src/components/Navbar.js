@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Nav() {
   return (
     <Navbar
-      brand={<li className="brand-logo center">Logo</li>}
+      brand={<li className="brand-logo center">SKIIMATIK</li>}
       centerLogo
       alignLinks="left"
     >

@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
       axios.get(queryURL, {
         params: {
           data: true,
-          days: 3,
+          days: 1,
           count: 3,
           lat: geoLat,
           lng: geoLng
