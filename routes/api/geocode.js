@@ -9,6 +9,7 @@ router.post("/", (req, res) => {
   let geocodeKey = "&key=" + process.env.GEOCODE;
   let geocodeRequest = geocodeURL + geocodeAddress + geocodeKey;
 
+
   axios.get(geocodeRequest)
     .then(function (response) {
       //console.log(response.data.results[0].geometry.location.lat);
@@ -28,7 +29,6 @@ router.post("/", (req, res) => {
         }
       })
         .then(function (response) {   
-          console.log(response.data)    
           res.send(response.data);
         })
         
