@@ -15,7 +15,7 @@ function Nav() {
 
       <Link to="/signup">Signup</Link>
 
-      <Link to="/api/ski">Skis</Link>
+      <Link to="/skis">Skis</Link>
     </Navbar>
   );
 }
