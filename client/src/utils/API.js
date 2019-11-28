@@ -17,6 +17,8 @@ export default {
   saveSki: function(skiData) {
     return axios.post("/api/skis", skiData);
   },
+  login: ({email, password}) => axios.post("/login", {email, password}),
+  signup: ({email, password}) => axios.post('/signup', {email, password}),
   getGeocode: function(city){
     console.log("city "+city);
     return axios.post("/api/geocode", {city: city});
