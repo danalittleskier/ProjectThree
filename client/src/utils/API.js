@@ -17,5 +17,6 @@ export default {
   saveBook: function(bookData) {
     return axios.post("/api/books", bookData);
   },
-  login: ({email, password}) => axios.post("/login", {email, password})
+  login: ({email, password}) => axios.post("/login", {email, password}),
+  signup: ({email, password}) => axios.post('/signup', {email, password})
 };
