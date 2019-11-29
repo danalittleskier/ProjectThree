@@ -1,6 +1,6 @@
-import React from "react";
-import { Navbar } from "react-materialize";
-import { Link } from 'react-router-dom'
+  import React from "react";
+  import { Navbar } from "react-materialize";
+  import { Link } from 'react-router-dom'
 
 function Nav() {
   return (
