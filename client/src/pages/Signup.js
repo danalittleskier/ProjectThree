@@ -22,7 +22,11 @@ class Signup extends React.Component {
     event.preventDefault();
     console.log("email: ", this.state.email, "password: ", this.state.password);
     API.signup({email: this.state.email, password: this.state.password})
-    .then(response => console.log(response.data))
+    .then(response => {
+      console.log(response.data)
+      this.setState({email: '',
+    password: ''})
+    })
     .catch(err => console.log(err))
   };
 
