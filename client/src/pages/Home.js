@@ -52,16 +52,16 @@ class Home extends React.Component {
         </Button>
         {this.state.results.length ? (
           <div className="container center">
-            
+              {console.log(this.state.results)}
               {this.state.results.map(result => (
                   <ResultCard 
                     key={result.station_information.triplet}
                     station={result.station_information.name}
                     distance={Math.floor(result.distance)}
                     elevation={result.station_information.elevation}
-                    snowpack={result.data[0]['Snow Depth (in)']}
-                    newsnow={result.data[0]['Change In Snow Depth (in)']}
-                    temperature={result.data[0]['Observed Air Temperature (degrees farenheit)']}
+                    snowpack={result.data[1]['Snow Depth (in)']}
+                    newsnow={result.data[1]['Change In Snow Depth (in)']}
+                    temperature={result.data[1]['Observed Air Temperature (degrees farenheit)']}
                   />
               ))}
             
