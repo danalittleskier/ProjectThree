@@ -3,12 +3,18 @@ const db = require("../models");
 
 // This file empties the Skis collection and inserts the books below
 
+// mongoose.connect(
+//   process.env.MONGODB_URI ||
+//   "mongodb://localhost/reactreadinglist"
+// );
+
 mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/skiimatik"
+  "mongodb+srv://gerritt:gerritt@planet-of-scrapes-wmmte.mongodb.net/skitest?retryWrites=true&w=majority",
+  { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-const skiSeed = [
+
+const bookSeed = [
   {
     brand: "Blizzard",
     model: "COCHISE",
