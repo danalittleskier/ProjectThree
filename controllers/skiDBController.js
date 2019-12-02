@@ -28,8 +28,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findByCategory: function(req, res) {
+    console.log("in db findByCategory "+req.body.snowtype);
     db.Ski
-      .findOne({ category: req.body.category })
+      .findOne({ snow_recommendation: req.body.snowtype })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
