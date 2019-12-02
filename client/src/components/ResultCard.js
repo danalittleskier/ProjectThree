@@ -1,14 +1,15 @@
 import React from 'react';
 import { Row } from 'react-materialize';
 
-function ResultCard({ station, distance, elevation, snowpack, newsnow, temperature }) {
+function ResultCard({ station, distance, elevation, snowpack, newsnow, temperature, recommendedSki }) {
   return (
 
     <Row>
       <div className="col s12 m12">
         <div className="card medium">
           <div className="card-image">
-            <img src="https://materializecss.com/images/sample-1.jpg" />
+            {console.log(recommendedSki)}
+            <img src={recommendedSki.image} />
             <span className="card-title">{station} <span>{distance} miles</span></span>
           </div>
           <div className="card-content">
@@ -18,7 +19,7 @@ function ResultCard({ station, distance, elevation, snowpack, newsnow, temperatu
             <p>Temperature: {temperature} F</p>
           </div>
           <div className="card-action">
-            <a href="#">Find a ski</a>
+            <a href="#">Ski Details</a>
           </div>
         </div>
       </div>
