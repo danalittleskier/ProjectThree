@@ -27,6 +27,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findByCategory: function(req, res) {
+    db.Ski
+      .findOne({ category: req.body.category })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   remove: function(req, res) {
     db.Ski
       .findById({ _id: req.params.id })
