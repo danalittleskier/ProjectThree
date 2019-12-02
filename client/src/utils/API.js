@@ -17,7 +17,11 @@ export default {
   saveSki: function(skiData) {
     return axios.post("/api/skis", skiData);
   },
-  getRecommendedSki: (snowtype) => axios.get("/api/ski", {snow_recommendation: snowtype}),
+  getRecommendedSki: (snowtype) => 
+  {
+    console.log("snow type " +snowtype);
+    axios.get("/api/ski", {snowtype: snowtype})
+  },
 
   login: ({email, password}) => axios.post("/login", {email, password}),
   signup: ({email, password}) => axios.post('/signup', {email, password}),

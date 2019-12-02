@@ -39,7 +39,12 @@ class Home extends React.Component {
     console.log(snowtype);
     API.getRecommendedSki(snowtype)
     .then(res =>
-      this.setState({ recommendedSki: res.data})
+      {
+        this.setState({ recommendedSki: res.data});
+        console.log(" ski  "+ this.state.recommendedSki);
+        return this.state.recommendedSki;
+      }
+      
     )
     .catch(err => console.log(err));
   }
@@ -71,7 +76,7 @@ class Home extends React.Component {
                     snowpack={result.data[1]['Snow Depth (in)']}
                     newsnow={result.data[1]['Change In Snow Depth (in)']}
                     temperature={result.data[1]['Observed Air Temperature (degrees farenheit)']}
-                    recommendedSki={this.state.recommendedSki}
+                    recommendedSki={this.findRecommendedSki(result.data[1]['Change In Snow Depth (in)'] > 6 ? 'Powder' : 'Groomed')}
                   />
               ))}
             
