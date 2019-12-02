@@ -1,22 +1,24 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
+  // Gets all skis
   getSkis: function() {
     return axios.get("/api/skis");
   },
-  // Gets the book with the given id
+  // Gets the skis with the given id
   getSki: function(id) {
     return axios.get("/api/skis/" + id);
   },
-  // Deletes the book with the given id
+  // Deletes the skis with the given id
   deleteSki: function(id) {
     return axios.delete("/api/skis/" + id);
   },
-  // Saves a book to the database
+  // Saves a ski to the database
   saveSki: function(skiData) {
     return axios.post("/api/skis", skiData);
   },
+  getRecommendedSki: (snowtype) => axios.get("/api/ski", {snow_recommendation: snowtype}),
+
   login: ({email, password}) => axios.post("/login", {email, password}),
   signup: ({email, password}) => axios.post('/signup', {email, password}),
   getGeocode: function(city){
