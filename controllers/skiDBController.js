@@ -27,6 +27,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  getRecommendedSki: function(req, res) {
+    console.log("in db  "+req.body.snowtype);
+    db.Ski
+      .findOne({ snow_recommendation: req.body.snowtype })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   remove: function(req, res) {
     db.Ski
       .findById({ _id: req.params.id })

@@ -6,9 +6,6 @@ const userController = require("../controllers/userController");
 
 
 
-
-
-
 router.route('/login')
   .post(userController.verify)
 

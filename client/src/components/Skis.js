@@ -8,7 +8,7 @@ function Skis({ brand, model, image, category, snow_recommendation, turns_recomm
       <div className="col s12 m12">
         <div className="card medium">
           <div className="card-image">
-            <img src={image} />
+            <img src={image} alt="ski model"/>
             <span className="card-title">{brand} <span>{model} </span></span>
           </div>
           <div className="card-content">
