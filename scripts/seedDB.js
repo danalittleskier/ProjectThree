@@ -3,18 +3,18 @@ const db = require("../models");
 
 // This file empties the Skis collection and inserts the books below
 
-// mongoose.connect(
-//   process.env.MONGODB_URI ||
-//   "mongodb://localhost/reactreadinglist"
-// );
-
 mongoose.connect(
-  "mongodb+srv://gerritt:gerritt@planet-of-scrapes-wmmte.mongodb.net/skitest?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true }
+  process.env.MONGODB_URI ||
+  "mongodb://localhost/skiimatik"
 );
 
+// mongoose.connect(
+//   "mongodb+srv://gerritt:gerritt@planet-of-scrapes-wmmte.mongodb.net/skitest?retryWrites=true&w=majority",
+//   { useNewUrlParser: true, useUnifiedTopology: true }
+// );
 
-const bookSeed = [
+
+const skiSeed = [
   {
     brand: "Blizzard",
     model: "COCHISE",
@@ -168,7 +168,7 @@ const bookSeed = [
   {
     brand: "Blizzard",
     model: "ALIGHT 8.2 TI+TPX 12 DEMO W",
-    image: `hhttps://www.blizzardsports.com/files/10202/c-fit-w-2032-q-auto-eco8A9074AE001_ALIGHT-8.2-TI-_-TPX-12-DEMO-W.png`,
+    image: `https://www.blizzardsports.com/files/10202/c-fit-w-2032-q-auto-eco8A9074AE001_ALIGHT-8.2-TI-_-TPX-12-DEMO-W.png`,
     category: "All Mountain",
     snow_recommendation: "Groomed",
     turns_recommendation: "Short",

@@ -12,22 +12,22 @@ class AllSkis extends React.Component {
 
     componentDidMount() {
         this.loadSkis();
-      }
-    
-      loadSkis = () => {
+    }
+
+    loadSkis = () => {
         API.getSkis()
-          .then(res =>
-            this.setState({ skis: res.data })
-          )
-          .catch(err => console.log(err));
-      };
+            .then(res =>
+                this.setState({ skis: res.data })
+            )
+            .catch(err => console.log(err));
+    };
     render() {
         return (
             <Container>
 
                 {this.state.skis.length ? (
                     <div className="container center">
-
+                        
                         {this.state.skis.map(result => (
                             <Skis
                                 key={result._id}
