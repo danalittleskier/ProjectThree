@@ -7,7 +7,7 @@ class Home extends React.Component {
   state = {
     search: '',
     results: [],
-    recommendedSki: '',
+    recommendedSki: {},
     error: ''
   }
 
@@ -41,7 +41,7 @@ class Home extends React.Component {
     .then(res =>
       {
         this.setState({ recommendedSki: res.data});
-        console.log(" ski  "+ this.state.recommendedSki);
+        console.log(res.data);
         return this.state.recommendedSki;
       }
       

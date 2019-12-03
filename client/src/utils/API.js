@@ -20,7 +20,7 @@ export default {
   getRecommendedSki: (snowtype) => 
   {
     console.log("snow type " +snowtype);
-    axios.get("/api/ski", {snowtype: snowtype})
+    return axios.post("/api/ski", {snowtype: snowtype})
   },
 
   login: ({email, password}) => axios.post("/login", {email, password}),
