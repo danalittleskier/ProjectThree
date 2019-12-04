@@ -31,7 +31,11 @@ module.exports = {
     console.log("in db  "+req.body.snowtype);
     db.Ski
       .findOne({ snow_recommendation: req.body.snowtype })
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel =>{ 
+        console.log("This is dbModel"+dbModel);
+        
+        res.json(dbModel)
+      })
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {

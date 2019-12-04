@@ -1,11 +1,12 @@
 import React from "react";
 import { Navbar } from "react-materialize";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import './style.css'
 
 function Nav() {
   return (
     <Navbar
-      brand={<li className="brand-logo center">SKIIMATIK</li>}
+      brand={<li className="brand-logo app-title center">SKIIMATIK</li>}
       centerLogo
       alignLinks="left"
     >
