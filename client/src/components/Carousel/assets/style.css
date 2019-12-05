@@ -1,0 +1,13 @@
+.carousel .thumb img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.carousel .slide img {
+    max-height: 500px;  /* change this to whatever you want */
+    width: 100%;
+}
+
+.landing-carousel{
+    height: 450px;
+}

@@ -1,23 +1,23 @@
 import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import "./assets/images/powder-ski.jpg";
+import imageOne from "./assets/images/powder-ski.jpg";
+// import imageTwo from "";
+// import imageThree from "";
+import "./assets/style.css";
  
 function LandingCarousel() {
 
         return (
-            <Carousel>
+            <Carousel className="landing-carousel">
                 <div>
-                    <img src="./assets/images/powder-ski.jpg" alt="NOT FOUND" />
-
+                    <img src={imageOne} alt="NOT FOUND" />
                 </div>
                 <div>
-                    <img src="assets/2.jpeg" alt="NOT FOUND"/>
-                    <p className="legend">Legend 2</p>
+                    {/* <img src={imageTwo} alt="NOT FOUND"/> */}
                 </div>
                 <div>
-                    <img src="assets/3.jpeg" alt="NOT FOUND"/>
-                    <p className="legend">Legend 3</p>
+                    {/* <img src={imageThree} alt="NOT FOUND"/> */}
                 </div>
             </Carousel>
         );
