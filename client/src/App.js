@@ -6,7 +6,7 @@ import Ski from "./pages/Ski";
 import Skis from "./pages/AllSkis"
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Nav from "./components/Navbar";
+import Nav from "./components/Navbar/Navbar";
 
 function App() {
   return (
