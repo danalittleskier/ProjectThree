@@ -1,13 +1,19 @@
 .carousel .thumb img {
     width: 100% !important;
     height: 100% !important;
-}
+} 
 
 .carousel .slide img {
-    max-height: 500px;  /* change this to whatever you want */
+    max-height: 1000px;  
     width: 100%;
 }
 
-.landing-carousel{
+/* .landing-carousel{
     height: 450px;
+} */
+/* .carousel {
+    height: 45rem;
+} */
+.thumbs-wrapper, .control-arrow{
+    display: none;
 }
