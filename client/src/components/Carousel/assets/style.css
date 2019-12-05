@@ -10,10 +10,11 @@
 
 /* .landing-carousel{
     height: 450px;
-} */
+} *
 /* .carousel {
     height: 45rem;
 } */
-.thumbs-wrapper, .control-arrow{
+/* These remove the thumb image and control L/R arrow from the carousel' */
+.thumbs-wrapper{
     display: none;
 }
