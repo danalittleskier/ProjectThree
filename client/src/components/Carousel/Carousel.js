@@ -9,7 +9,7 @@ import "./assets/style.css";
 function LandingCarousel() {
 
         return (
-            <Carousel className="landing-carousel">
+            <Carousel className="landing-carousel" showArrows={false} showThumbs={false}>
                 <div>
                     <img src={imageOne} alt="NOT FOUND" />
                 </div>

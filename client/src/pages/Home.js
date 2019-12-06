@@ -53,7 +53,7 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <LandingCarousel />
+        <LandingCarousel></LandingCarousel>
         <Container>
           <h3 className="center">Snow Station Report</h3>
           <TextInput
