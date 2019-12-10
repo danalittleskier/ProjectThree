@@ -19,7 +19,6 @@ export default {
   },
   getRecommendedSki: (snowtype) => 
   {
-    console.log("snow type " +snowtype);
     return axios.post("/api/ski", {snowtype: snowtype})
   },
 

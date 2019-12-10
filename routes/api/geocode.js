@@ -28,7 +28,7 @@ router.post("/", (req, res) => {
           lng: geoLng
         }
       })
-        .then(function (response) {   
+        .then(function (response) { 
           res.send(response.data);
         })
         
