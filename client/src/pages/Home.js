@@ -21,7 +21,7 @@ class Home extends React.Component {
     });
   };
 
-  handleSearchSubmit = event => {
+  handleSearchSubmit = async event => {
     event.preventDefault();
     API.getGeocode(this.state.search)
       .then(res => {
@@ -29,23 +29,28 @@ class Home extends React.Component {
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        res.data ?
-          this.setState({ results: res.data, search: '' }) :
-          this.setState({ results: [] });
-        console.log(this.state.results);
+
+        const apiResults = res.data || [];
+        Promise.all(apiResults.map(r => this.findRecommendedSki(r))).then(data => this.setState({ results: data, search: '' })); // reccommended ski object from the database
+        // return Promise.all(promises);
+        // Promise.all(promises).then(results => this.setState({ results: results.data, search: '' }) );
+
       })
+      // .then(results => {
+      //   this.setState({ results: res.data, search: '' }) 
+      // })
       .catch(err => this.setState({ error: err.message }));
   }
 
-  findRecommendedSki = (snowtype) => {
-    console.log(snowtype);
-    API.getRecommendedSki(snowtype)
-      .then(res => {
-        this.setState({ recommendedSki: res.data });
-        console.log(this.state.recommendedSki);
-        return this.state.recommendedSki;
-      }
+  findRecommendedSki = async (result) => {
 
+    let snowtype = result.data[1]['Change In Snow Depth (in)'] > 5 ? 'Powder' : 'Groomed';
+
+    return API.getRecommendedSki(snowtype)
+      .then(res => {
+        result.recommendedSki = res.data;
+        return result;
+      }
       )
       .catch(err => console.log(err));
   }
@@ -68,8 +73,9 @@ class Home extends React.Component {
         </Button>
           {this.state.results.length ? (
             <div className="container center">
-              {console.log(this.state.results)}
+              {/* {console.log(this.state.results)} */}
               {this.state.results.map(result => (
+
                 <ResultCard
                   key={result.station_information.triplet}
                   station={result.station_information.name}
@@ -78,7 +84,7 @@ class Home extends React.Component {
                   snowpack={result.data[1]['Snow Depth (in)']}
                   newsnow={result.data[1]['Change In Snow Depth (in)']}
                   temperature={result.data[1]['Observed Air Temperature (degrees farenheit)']}
-                  recommendedSki={this.findRecommendedSki(result.data[1]['Change In Snow Depth (in)'] > 6 ? 'Powder' : 'Groomed')}
+                  recommendedSki={result.recommendedSki}
 
                 />
               ))}
