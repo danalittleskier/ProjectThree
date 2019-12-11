@@ -11,7 +11,13 @@ module.exports = {
             if (err) res.send(err);
 
             db.User
-            .create({email: req.body.email, password: hashPass})
+            .create({
+                email: req.body.email, 
+                password: hashPass,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                
+            })
             .then(user => {
   
                 res.json(user)

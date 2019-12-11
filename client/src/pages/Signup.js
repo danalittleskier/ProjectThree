@@ -1,11 +1,14 @@
 import React from "react";
 import { Container, Row, Col, TextInput, Button } from "react-materialize";
 import API from "../utils/API";
+import SignupForm from "../components/signUpForm/signUp";
 
 class Signup extends React.Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    firstName: "",
+    lastName: ""
   };
 
   handleInputChange = event => {
@@ -24,16 +27,22 @@ class Signup extends React.Component {
     API.signup({email: this.state.email, password: this.state.password})
     .then(response => {
       console.log(response.data)
-      this.setState({email: '',
-    password: ''})
+      this.setState({
+        email: '',
+        password: '',
+        firstName: '',
+        lastName: '',
+        location: ''
+      })
     })
     .catch(err => console.log(err))
-  };
+  }; 
 
   render() {
     return (
       <Container>
         <h1 className="center">Sign Up!</h1>
+        <h3 className="center">Login Info</h3>
         <Row>
           <Col s={6}>
             <TextInput
@@ -61,8 +70,49 @@ class Signup extends React.Component {
             />
           </Col>
         </Row>
-        <Button onClick={this.handleFormSubmit}>Submit</Button>
-      </Container>
+        <h3 className="center">About You</h3>
+        <Row>
+          <Col s={4}>
+            <TextInput
+              firstName
+              validate
+              placeholder="First Name"
+              s={12}
+              inputClassName="input-field"
+              id="firstName"
+              name="firstName"
+              value={this.state.firstName}
+              onChange={this.handleInputChange}
+            />
+          </Col>
+          <Col s={4}>
+            <TextInput
+              lastName
+              placeholder="Last Name"
+              s={12}
+              inputClassName="input-field"
+              id="lastName"
+              name="lastName"
+              value={this.state.lastName}
+              onChange={this.handleInputChange}
+            />
+          </Col>
+          <Col s={4}>
+            <TextInput
+              location
+              placeholder="Enter your Location"
+              s={12}
+              inputClassName="input-field"
+              id="location"
+              name="location"
+              value={this.state.location}
+              onChange={this.handleInputChange}
+            />
+          </Col>
+        </Row>
+        {/* <SignupForm/> */}
+        <Button onClick={this.handleFormSubmit}>Sign Up!</Button>
+        </Container>
     );
   }
 }
