@@ -52,6 +52,7 @@ class AllSkis extends React.Component {
           <option value="" disabled defaultValue>
             SKi Pace
           </option>
+          <option value="">All</option>
           <option value="Slow">Slow</option>
           <option value="Moderate">Moderate</option>
           <option value="Fast">Fast</option>
