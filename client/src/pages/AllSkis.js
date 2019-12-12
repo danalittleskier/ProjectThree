@@ -56,7 +56,7 @@ class AllSkis extends React.Component {
           <option value="Moderate">Moderate</option>
           <option value="Fast">Fast</option>
         </select>
-        {this.state.filteredPace ? (
+        {this.state.filteredPace.length ? (
           this.state.filteredPace.map(result => (
             <div className="container center">
               <Skis
