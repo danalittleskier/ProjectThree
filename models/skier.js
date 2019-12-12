@@ -6,9 +6,9 @@ const skierSchema = new Schema({
   last_name: { type: String, required: true },
   gender: { type: String, required: true },
   level: { type: String, required: true },
-  snow_preference: { type: String, required: true },
-  resort_preference: { type: String, required: true },
-  username: { type: Number, required: true },
+  snow_preference: { type: String},
+  resort_preference: { type: String },
+  username: { type: String, required: true },
   ski: {
     type: Schema.Types.ObjectId,
     ref: "Ski"

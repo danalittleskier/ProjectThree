@@ -23,6 +23,10 @@ class Login extends Component {
         console.log('email: ', this.state.email, 'password: ', this.state.password);
         API.login({email: this.state.email, password: this.state.password})
             .then(response => {
+              localStorage.setItem('token', response.data.token);
+              localStorage.setItem('user', JSON.stringify(response.data.user)); 
+              //localStorage.getItem('user')
+              //JSON.parse(localStorage.getItem('user'))._id
               console.log(response.data);
               this.setState({
                 email: '',
