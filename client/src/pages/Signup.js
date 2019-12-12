@@ -5,12 +5,15 @@ import API from "../utils/API";
 class Signup extends React.Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    firstname: "",
+    lastname: "",
+    resort: "",
+    level: ""
+
   };
 
   handleInputChange = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -18,14 +21,18 @@ class Signup extends React.Component {
   };
 
   handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
     console.log("email: ", this.state.email, "password: ", this.state.password);
-    API.signup({email: this.state.email, password: this.state.password})
+    API.signup({email: this.state.email, 
+                password: this.state.password, 
+                firstname: this.state.firstname, 
+                lastname: this.state.lastname, 
+                gender: this.state.gender,
+                level: this.state.level,
+                resort: this.state.resort})
     .then(response => {
       console.log(response.data)
-      this.setState({email: '',
-    password: ''})
+      this.setState({email: '', password: '', firstname: '', lastname: '', gender: '', level: '', resort: ''})
     })
     .catch(err => console.log(err))
   };
@@ -57,6 +64,66 @@ class Signup extends React.Component {
               id="password"
               name="password"
               value={this.state.password}
+              onChange={this.handleInputChange}
+            />
+          </Col>
+          <Col s={6}>
+            <TextInput
+              text
+              placeholder="FirstName"
+              s={12}
+              inputClassName="input-field"
+              id="firstname"
+              name="firstname"
+              value={this.state.firstname}
+              onChange={this.handleInputChange}
+            />
+          </Col>
+          <Col s={6}>
+            <TextInput
+              text
+              placeholder="LastName"
+              s={12}
+              inputClassName="input-field"
+              id="lastname"
+              name="lastname"
+              value={this.state.lastname}
+              onChange={this.handleInputChange}
+            />
+          </Col>
+          <Col s={6}>
+            <TextInput
+              text
+              placeholder="Resort Preference"
+              s={12}
+              inputClassName="input-field"
+              id="resort"
+              name="resort"
+              value={this.state.resort}
+              onChange={this.handleInputChange}
+            />
+          </Col>
+          <Col s={6}>
+            <TextInput
+              text
+              placeholder="Gender"
+              s={12}
+              inputClassName="input-field"
+              id="gender"
+              name="gender"
+              value={this.state.gender}
+              onChange={this.handleInputChange}
+            />
+          </Col>
+          <Col s={6}>
+            <TextInput
+              text
+              placeholder="Skier Level"
+              s={12}
+              inputClassName="input-field"
+              id="level"
+              name="level"
+              value={this.state.level}
               onChange={this.handleInputChange}
             />
           </Col>

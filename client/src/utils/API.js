@@ -23,7 +23,7 @@ export default {
   },
 
   login: ({email, password}) => axios.post("/login", {email, password}),
-  signup: ({email, password}) => axios.post('/signup', {email, password}),
+  signup: ({email, password, firstname, lastname, gender, level, resort })  => axios.post('/signup', {email, password, firstname, lastname, gender, level, resort}),
   getGeocode: function(city){
     console.log("city "+city);
     return axios.post("/api/geocode", {city: city});
