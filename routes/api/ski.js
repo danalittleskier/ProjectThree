@@ -7,7 +7,7 @@ const skiDBController = require("../../controllers/skiDBController");
 router
   .post("/", skiDBController.getRecommendedSki)
 
-  router.get('/skis/:id', skiDBController.findById)
+  router.get('/:id', skiDBController.findById)
   
 
 module.exports = router;

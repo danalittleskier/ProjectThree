@@ -7,7 +7,7 @@ export default {
   },
   // Gets the skis with the given id
   getSki: function(id) {
-    return axios.get("/api/skis/" + id);
+    return axios.get("/api/ski/" + id);
   },
   // Deletes the skis with the given id
   deleteSki: function(id) {

@@ -20,7 +20,7 @@ function Skis({ brand, model, image, category, snow_recommendation, turns_recomm
            
           </div>
           <div className="card-action">
-            <p  id={id} onClick={onClick}>Details</p>
+            <Link to={`/api/ski/${id}`}  id={id} onClick={onClick}>Details</Link>
           </div>
         </div>
       </div>

@@ -45,8 +45,8 @@ class AllSkis extends React.Component {
     const { id } = event.target
     console.log(id)
     API.getSki(id)
-    .then(res => console.log(res))
-    .catch();
+    .then(res =>  console.log(res.data))
+    .catch(err => console.log(err));
   }
   render() {
     return (
@@ -85,7 +85,6 @@ class AllSkis extends React.Component {
           <div className="container center">
             {this.state.skis.map(result => (
               <Skis
-              
                 id={result._id}
                 key={result._id}
                 brand={result.brand}
