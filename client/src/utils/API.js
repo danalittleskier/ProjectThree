@@ -7,7 +7,7 @@ export default {
   },
   // Gets the skis with the given id
   getSki: function(id) {
-    return axios.get("/api/skis/" + id);
+    return axios.get("/api/ski/" + id);
   },
   // Deletes the skis with the given id
   deleteSki: function(id) {
@@ -21,7 +21,10 @@ export default {
   {
     return axios.post("/api/ski", {snowtype: snowtype})
   },
-
+  getSkiByPace: (pace) => 
+  {
+    return axios.post(`/api/${pace}`, {pace: pace})
+  },
   login: ({email, password}) => axios.post("/login", {email, password}),
   signup: ({email, password, firstname, lastname, gender, level, resort })  => axios.post('/signup', {email, password, firstname, lastname, gender, level, resort}),
   getGeocode: function(city){
