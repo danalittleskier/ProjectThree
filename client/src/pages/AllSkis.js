@@ -2,6 +2,7 @@ import React from "react";
 import API from "../utils/API";
 import { Container } from "react-materialize";
 import Skis from "../components/Skis";
+import Ski from "./Ski";
 
 class AllSkis extends React.Component {
   state = {
@@ -16,8 +17,7 @@ class AllSkis extends React.Component {
     const { name, value } = event.target;
     this.setState(
       {
-        [name]: value,
-        pace: value
+        [name]: value
       },
       () => this.filterSkisByPace()
     );
@@ -40,6 +40,14 @@ class AllSkis extends React.Component {
       .then(res => this.setState({ skis: res.data }))
       .catch(err => console.log(err));
   };
+
+  getSkitails = event => {
+    const { id } = event.target
+    console.log(id)
+    API.getSki(id)
+    .then(res => console.log(res))
+    .catch();
+  }
   render() {
     return (
       <Container>
@@ -59,9 +67,8 @@ class AllSkis extends React.Component {
         </select>
         {this.state.filteredPace.length ? (
           this.state.filteredPace.map(result => (
-            <div className="container center">
+            <div className="container center" key={result._id}>
               <Skis
-                key={result._id}
                 brand={result.brand}
                 model={result.model}
                 image={result.image}
@@ -69,6 +76,8 @@ class AllSkis extends React.Component {
                 snow_recommendation={result.snow_recommendation}
                 turns_recommendation={result.turns_recommendation}
                 pace_recommendation={result.pace_recommendation}
+                id={result._id}
+                onClick={this.getSkitails}
               />
             </div>
           ))
@@ -76,6 +85,8 @@ class AllSkis extends React.Component {
           <div className="container center">
             {this.state.skis.map(result => (
               <Skis
+              
+                id={result._id}
                 key={result._id}
                 brand={result.brand}
                 model={result.model}
@@ -84,12 +95,14 @@ class AllSkis extends React.Component {
                 snow_recommendation={result.snow_recommendation}
                 turns_recommendation={result.turns_recommendation}
                 pace_recommendation={result.pace_recommendation}
+                onClick={this.getSkitails}
               />
             ))}
           </div>
         ) : (
           <h5>{this.state.message}</h5>
         )}
+        
       </Container>
     );
   }
