@@ -13,7 +13,7 @@ module.exports = {
             db.User
             .create({email: req.body.email, password: hashPass})
             .then(user => {
-  
+                passport.
                 res.json(user)
               })
             .catch(err => res.json(err));
@@ -28,6 +28,10 @@ module.exports = {
                   bcrypt.hash(req.body.password, 10).then(() => {
                     bcrypt.compare(req.body.password, user.password).then(response => {
                         if (response) {
+                            passport.authenticate('local'), (req, res) => {
+                                console.log(res)
+                                console.log(req)
+                            };
                             res.json(user)
                         } else {
                             res.send('password does not match')

@@ -3,11 +3,13 @@ const express = require("express");
 const router = express.Router();
 const apiRoutes = require("./api");
 const userController = require("../controllers/userController");
+const passport = require('passport');
+
 
 
 
 router.route('/login')
-  .post(userController.verify)
+  .post(passport.authenticate('local'), userController.verify)
 
 router.route('/signup')
   .post(userController.create)
