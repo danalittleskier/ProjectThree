@@ -1,6 +1,6 @@
 const db = require("../models");
 const passport = require('../config/passport');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 

@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { Row } from 'react-materialize';
 
-function Skis({ brand, model, image, category, snow_recommendation, turns_recommendation, pace_recommendation }) {
+function Skis({ brand, model, image, category, snow_recommendation, turns_recommendation, pace_recommendation, id, onClick }) {
   return (
 
     <Row>
@@ -19,7 +20,7 @@ function Skis({ brand, model, image, category, snow_recommendation, turns_recomm
            
           </div>
           <div className="card-action">
-            <a href="#">Details</a>
+            <Link to={`/api/ski/${id}`}  id={id} onClick={onClick}>Details</Link>
           </div>
         </div>
       </div>
