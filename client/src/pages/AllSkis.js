@@ -60,7 +60,7 @@ class AllSkis extends React.Component {
           value={this.state.pace}
         >
           <option value="" disabled defaultValue>
-            SKi Pace
+            Ski Pace
           </option>
           <option value="">All</option>
           <option value="Slow">Slow</option>
