@@ -2,17 +2,23 @@ import React from "react";
 import { Container, Row, Col, TextInput, Button } from "react-materialize";
 import API from "../utils/API";
 
+const initialState = {
+  email: "",
+  password: "",
+  firstname: "",
+  lastname: "",
+  resort: "",
+  level: "",
+  firstnameError: "",
+  lastnameError: "",
+  emailError: "",
+  passwordError: "",
+
+
+};
+
 class Signup extends React.Component {
-  state = {
-    email: "",
-    password: "",
-    firstname: "",
-    lastname: "",
-    resort: "",
-    level: ""
-
-  };
-
+  state = initialState;
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -20,9 +26,32 @@ class Signup extends React.Component {
     });
   };
 
+  validate = () => {
+    let firstnameError = "";
+    // let lastnameError = "";
+    let emailError = "";
+    // let passwordError = "";
+
+    if (!this.state.email.includes("@")){
+      emailError = "Invalid Email Address"
+    }
+    if (!this.state.firstname){
+      firstnameError = "First Name is a required field"
+    }
+
+    if (emailError || firstnameError){
+     this.setState ({emailError, firstnameError});
+     return false;
+    }
+    return true;
+  }
+
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("email: ", this.state.email, "password: ", this.state.password);
+    const isValid= this.validate();
+    if(isValid){
+      console.log("email: ", this.state.email, "password: ", this.state.password);
+    };
     API.signup({email: this.state.email, 
                 password: this.state.password, 
                 firstname: this.state.firstname, 
@@ -32,11 +61,12 @@ class Signup extends React.Component {
                 resort: this.state.resort})
     .then(response => {
       console.log(response.data)
-      this.setState({email: '', password: '', firstname: '', lastname: '', gender: '', level: '', resort: ''})
+      this.setState(initialState)
     })
     .catch(err => console.log(err))
   };
 
+ 
   render() {
     return (
       <Container>
@@ -45,7 +75,6 @@ class Signup extends React.Component {
           <Col s={6}>
             <TextInput
               email
-              validate
               placeholder="Email"
               s={12}
               inputClassName="input-field"
@@ -54,6 +83,13 @@ class Signup extends React.Component {
               value={this.state.email}
               onChange={this.handleInputChange}
             />
+            <div style={{color: "red"}}>
+                {this.state.emailError}
+                </div>
+
+            {/* {this.state.emailError ? (
+              
+                ) : null} */}
           </Col>
           <Col s={6}>
             <TextInput
