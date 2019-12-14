@@ -2,17 +2,24 @@ import React from "react";
 import { Container, Row, Col, TextInput, Button } from "react-materialize";
 import API from "../utils/API";
 
+const initialState = {
+  email: "",
+  password: "",
+  firstname: "",
+  lastname: "",
+  resortPref: "",
+  level: "",
+  firstnameError: "",
+  lastnameError: "",
+  emailError: "",
+  passwordError: "",
+  resortPrefError: "",
+
+
+};
+
 class Signup extends React.Component {
-  state = {
-    email: "",
-    password: "",
-    firstname: "",
-    lastname: "",
-    resort: "",
-    level: ""
-
-  };
-
+  state = initialState;
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -20,9 +27,43 @@ class Signup extends React.Component {
     });
   };
 
+  validate = () => {
+    let firstnameError = "";
+    let lastnameError = "";
+    let emailError = "";
+    let resortPrefError = "";
+
+    if (!this.state.email.includes("@")){
+      emailError = "Invalid Email Address"
+    }
+    if (this.state.firstname.length < 1){
+      firstnameError = "First Name is a required field"
+    }
+    if (this.state.lastname.length < 1){
+      lastnameError = "Last Name is a required field"
+    }
+    if (this.state.resortPref.length < 1){
+      resortPrefError = "Resort Preference is a required field"
+    }
+
+    if (emailError 
+        || firstnameError
+        || lastnameError
+        // || passwordError
+        || resortPrefError
+        ){
+     this.setState ({emailError, firstnameError, lastnameError, resortPrefError});
+     return false;
+    }
+    return true;
+  }
+
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("email: ", this.state.email, "password: ", this.state.password);
+    const isValid= this.validate();
+    if(isValid){
+      console.log("email: ", this.state.email, "password: ", this.state.password);
+    };
     API.signup({email: this.state.email, 
                 password: this.state.password, 
                 firstname: this.state.firstname, 
@@ -32,11 +73,12 @@ class Signup extends React.Component {
                 resort: this.state.resort})
     .then(response => {
       console.log(response.data)
-      this.setState({email: '', password: '', firstname: '', lastname: '', gender: '', level: '', resort: ''})
+      this.setState(initialState)
     })
     .catch(err => console.log(err))
   };
 
+ 
   render() {
     return (
       <Container>
@@ -45,7 +87,6 @@ class Signup extends React.Component {
           <Col s={6}>
             <TextInput
               email
-              validate
               placeholder="Email"
               s={12}
               inputClassName="input-field"
@@ -54,6 +95,10 @@ class Signup extends React.Component {
               value={this.state.email}
               onChange={this.handleInputChange}
             />
+            <div style={{color: "red"}}>
+                {this.state.emailError}
+                </div>
+           
           </Col>
           <Col s={6}>
             <TextInput
@@ -66,6 +111,7 @@ class Signup extends React.Component {
               value={this.state.password}
               onChange={this.handleInputChange}
             />
+            
           </Col>
           <Col s={6}>
             <TextInput
@@ -78,11 +124,14 @@ class Signup extends React.Component {
               value={this.state.firstname}
               onChange={this.handleInputChange}
             />
+            <div style={{color: "red"}}>
+                {this.state.firstnameError}
+                </div>
           </Col>
           <Col s={6}>
             <TextInput
               text
-              placeholder="LastName"
+              placeholder="Last Name"
               s={12}
               inputClassName="input-field"
               id="lastname"
@@ -90,6 +139,9 @@ class Signup extends React.Component {
               value={this.state.lastname}
               onChange={this.handleInputChange}
             />
+            <div style={{color: "red"}}>
+                {this.state.lastnameError}
+                </div>
           </Col>
           <Col s={6}>
             <TextInput
@@ -102,6 +154,9 @@ class Signup extends React.Component {
               value={this.state.resort}
               onChange={this.handleInputChange}
             />
+            <div style={{color: "red"}}>
+                {this.state.resortPrefError}
+                </div>
           </Col>
           <Col s={6}>
             <TextInput
