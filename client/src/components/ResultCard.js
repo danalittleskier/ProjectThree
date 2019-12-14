@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row } from 'react-materialize';
+import { Link } from 'react-router-dom'
 
 function ResultCard({ station, distance, elevation, snowpack, newsnow, temperature, recommendedSki }) {
   return (
@@ -20,7 +21,7 @@ function ResultCard({ station, distance, elevation, snowpack, newsnow, temperatu
             <p>Temperature: {temperature} F</p>
           </div>
           <div className="card-action">
-            <a href="#">Ski Details</a>
+            <Link to={`/ski/${recommendedSki._id}`}>Ski Details</Link>
           </div>
         </div>
       </div>

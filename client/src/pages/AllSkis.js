@@ -2,7 +2,8 @@ import React from "react";
 import API from "../utils/API";
 import { Container } from "react-materialize";
 import Skis from "../components/Skis";
-import Ski from "./Ski";
+import { Link } from 'react-router-dom';
+
 
 class AllSkis extends React.Component {
   state = {
@@ -48,6 +49,7 @@ class AllSkis extends React.Component {
     .then(res =>  console.log(res.data))
     .catch(err => console.log(err));
   }
+
   render() {
     return (
       <Container>

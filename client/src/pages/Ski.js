@@ -1,50 +1,56 @@
-import React from "react";
-import { Row } from "react-materialize";
+import React, { Component } from "react";
+import { Container, Row } from "react-materialize";
+import API from "../utils/API";
 
-function Ski({
-  brand,
-  model,
-  image,
-  category,
-  snow_recommendation,
-  turns_recommendation,
-  pace_recommendation,
-  gender,
-  description,
-  width,
-  length,
-  radius,
-  tip,
-  tail,
-  id
-}) {
-  return (
-    <Row>
-      <div className="col s12 m12">
-        <div className="card medium">
-          <div className="card-image">
-            <img src={image} alt="ski model" />
-            <span className="card-title">
-              {brand} <span>{model} </span>
-            </span>
+class Ski extends Component {
+  state = {
+    ski: {}
+  };
+
+  componentDidMount() {
+    this.getSkitails(this.props.match.params.id);
+    console.log(this.props.match.params.id);
+  }
+
+  getSkitails = id => {
+    console.log(id);
+    API.getSki(id)
+      .then(res => this.setState({ ski: res.data }))
+      .catch(err => console.log(err));
+  };
+
+  render() {
+    return (
+      <Container>
+        <Row>
+          {console.log(this.state.ski)}
+          <div className="col s12 m12">
+            <div className="card medium">
+              <div className="card-image">
+                <img src={this.state.ski.image} alt="ski model" />
+                <span className="card-title">
+                  {this.state.ski.brand} <span>{this.state.ski.model} </span>
+                </span>
+              </div>
+              <div className="card-content">
+                <h6>{this.state.ski.category}</h6>
+                <p>Snow: {this.state.ski.snow_recommendation}</p>
+                <p>pace: {this.state.ski.pace_recommendation}</p>
+                <p>Turns: {this.state.ski.turns_recommendation}</p>
+                <p>Gender: {this.state.ski.gender}</p>
+                <p>Description: {this.state.ski.description}</p>
+                <p>width: {this.state.ski.width}</p>
+                <p>Length: {this.state.ski.length}</p>
+                <p>radius: {this.state.ski.radius}</p>
+                <p>tip: {this.state.ski.tip}</p>
+                <p>tail: {this.state.ski.tail}</p>
+              </div>
+            </div>
           </div>
-          <div className="card-content">
-            <h6>{category}</h6>
-            <p>Snow: {snow_recommendation}</p>
-            <p>pace: {pace_recommendation}</p>
-            <p>Turns: {turns_recommendation}</p>
-            <p>Gender: {gender}</p>
-            <p>Description: {description}</p>
-            <p>width: {width}</p>
-            <p>Length: {length}</p>
-            <p>radius: {radius}</p>
-            <p>tip: {tip}</p>
-            <p>tail: {tail}</p>
-          </div>
-        </div>
-      </div>
-    </Row>
-  );
+        </Row>
+      </Container>
+    );
+  }
 }
 
 export default Ski;
