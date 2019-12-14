@@ -7,12 +7,13 @@ const initialState = {
   password: "",
   firstname: "",
   lastname: "",
-  resort: "",
+  resortPref: "",
   level: "",
   firstnameError: "",
   lastnameError: "",
   emailError: "",
   passwordError: "",
+  resortPrefError: "",
 
 
 };
@@ -28,19 +29,30 @@ class Signup extends React.Component {
 
   validate = () => {
     let firstnameError = "";
-    // let lastnameError = "";
+    let lastnameError = "";
     let emailError = "";
-    // let passwordError = "";
+    let resortPrefError = "";
 
     if (!this.state.email.includes("@")){
       emailError = "Invalid Email Address"
     }
-    if (!this.state.firstname){
+    if (this.state.firstname.length < 1){
       firstnameError = "First Name is a required field"
     }
+    if (this.state.lastname.length < 1){
+      lastnameError = "Last Name is a required field"
+    }
+    if (this.state.resortPref.length < 1){
+      resortPrefError = "Resort Preference is a required field"
+    }
 
-    if (emailError || firstnameError){
-     this.setState ({emailError, firstnameError});
+    if (emailError 
+        || firstnameError
+        || lastnameError
+        // || passwordError
+        || resortPrefError
+        ){
+     this.setState ({emailError, firstnameError, lastnameError, resortPrefError});
      return false;
     }
     return true;
@@ -86,10 +98,7 @@ class Signup extends React.Component {
             <div style={{color: "red"}}>
                 {this.state.emailError}
                 </div>
-
-            {/* {this.state.emailError ? (
-              
-                ) : null} */}
+           
           </Col>
           <Col s={6}>
             <TextInput
@@ -102,6 +111,7 @@ class Signup extends React.Component {
               value={this.state.password}
               onChange={this.handleInputChange}
             />
+            
           </Col>
           <Col s={6}>
             <TextInput
@@ -114,11 +124,14 @@ class Signup extends React.Component {
               value={this.state.firstname}
               onChange={this.handleInputChange}
             />
+            <div style={{color: "red"}}>
+                {this.state.firstnameError}
+                </div>
           </Col>
           <Col s={6}>
             <TextInput
               text
-              placeholder="LastName"
+              placeholder="Last Name"
               s={12}
               inputClassName="input-field"
               id="lastname"
@@ -126,6 +139,9 @@ class Signup extends React.Component {
               value={this.state.lastname}
               onChange={this.handleInputChange}
             />
+            <div style={{color: "red"}}>
+                {this.state.lastnameError}
+                </div>
           </Col>
           <Col s={6}>
             <TextInput
@@ -138,6 +154,9 @@ class Signup extends React.Component {
               value={this.state.resort}
               onChange={this.handleInputChange}
             />
+            <div style={{color: "red"}}>
+                {this.state.resortPrefError}
+                </div>
           </Col>
           <Col s={6}>
             <TextInput
