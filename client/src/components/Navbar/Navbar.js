@@ -6,6 +6,7 @@ import './style.css';
 function Nav() {
   return (
     <Navbar
+      className="indigo"
       brand={<li className="brand-logo app-title center">SKIIMATIK</li>}
       centerLogo
       alignLinks="left"
