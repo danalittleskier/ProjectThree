@@ -43,8 +43,16 @@ class Home extends React.Component {
   }
 
   findRecommendedSki = async (result) => {
+    //algorithm for ski recommendation
+    let newsnow = result.data[1]['Change In Snow Depth (in)'];
+    let snowtype = 'Groomed';
 
-    let snowtype = result.data[1]['Change In Snow Depth (in)'] > 5 ? 'Powder' : 'Groomed';
+    if(newsnow > 2){
+      snowtype = 'Crud';
+    }
+    if(newsnow > 5){
+      snowtype = 'Powder';
+    } 
 
     return API.getRecommendedSki(snowtype)
       .then(res => {
@@ -73,7 +81,7 @@ class Home extends React.Component {
         </Button>
           {this.state.results.length ? (
             <div className="container center">
-              {/* {console.log(this.state.results)} */}
+              {console.log(this.state.results)}
               {this.state.results.map(result => (
 
                 <ResultCard
