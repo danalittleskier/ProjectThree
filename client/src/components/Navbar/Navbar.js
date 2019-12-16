@@ -1,9 +1,12 @@
 import React from "react";
 import { Navbar, Icon, NavItem } from "react-materialize";
 import { Link } from 'react-router-dom';
+import { useAuth0 } from "../../react-auth0-spa";
 import './style.css';
 
 function Nav() {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
   return (
     <Navbar
       className="indigo"
@@ -25,15 +28,19 @@ function Nav() {
     >
 
       <NavItem href="/">Home</NavItem>
-      <NavItem href="/login">Login</NavItem>
       <NavItem href="/signup">Signup</NavItem>
       <NavItem href="/skis">Skis</NavItem>
 
 
-      {/* <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Signup</Link>
-        <Link to="/skis">Skis</Link> */}
+      {!isAuthenticated && (
+        <NavItem onClick={() => loginWithRedirect({})}>Log in</NavItem>
+      )}
+
+      {isAuthenticated && <NavItem onClick={() => logout()}>Log out</NavItem>}
+
+      {isAuthenticated && <NavItem href="/">Home</NavItem>}
+      {isAuthenticated && <NavItem href="/profile">Profile</NavItem>}
+
 
     </Navbar>
 
