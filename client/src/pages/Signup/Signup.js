@@ -63,11 +63,9 @@ class Signup extends React.Component {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-      console.log("email: ", this.state.email, "password: ", this.state.password);
     };
     API.signup({
       email: this.state.email,
-      password: this.state.password,
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       gender: this.state.gender,
@@ -101,20 +99,7 @@ class Signup extends React.Component {
               onChange={this.handleInputChange}
             />
           </Col>
-          <Col s={6}>
-            <label htmlFor="password" className={this.state.passwordError ? "errStyle" : null}>Password</label>
-            <TextInput
-              password
-              placeholder="Password"
-              s={12}
-              inputClassName="input-field"
-              id="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleInputChange}
-            />
-
-          </Col>
+         
           <Col s={6}>
             <label htmlFor="firstname" className={this.state.firstnameError ? "errStyle" : null}>First Name</label>
             <TextInput
