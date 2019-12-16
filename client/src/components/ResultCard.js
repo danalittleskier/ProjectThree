@@ -15,9 +15,9 @@ function ResultCard({ station, distance, elevation, snowpack, newsnow, temperatu
           </div>
           <div className="card-content">
             <p>Snow Station: {station} <span>{distance} miles</span></p>
-            <p>Elevation: {elevation}</p>
-            <p>New Snow: {newsnow}</p>
-            <p>Snow Pack: {snowpack}</p>
+            <p>Elevation: {elevation} ft</p>
+            <p>New Snow: {newsnow ? newsnow : 0} in</p>
+            <p>Snow Pack: {snowpack ? snowpack + " in": "N/A"} </p>
             <p>Temperature: {temperature} F</p>
           </div>
           <div className="card-action">
