@@ -7,8 +7,17 @@ import Skis from "./pages/AllSkis"
 import Login from "./pages/Login";
 import Signup from "./pages//Signup/Signup";
 import Nav from "./components/Navbar/Navbar";
+import Profile from "./components/Profile";
+import PrivateRoute from "./components/PrivateRoute";
+import { useAuth0 } from "./react-auth0-spa";
 
-function App() {
+const App = () => {
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Router>
       <div>
@@ -19,6 +28,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/skis" component={Skis} />
           <Route exact path="/ski/:id" component={Ski} />
+          <PrivateRoute exact path="/profile" component={Profile} />
           <Route component={NoMatch} />
         </Switch>
       </div>
