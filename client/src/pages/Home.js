@@ -2,7 +2,7 @@ import React from "react";
 import API from "../utils/API";
 import { TextInput, Container, Button } from 'react-materialize';
 import ResultCard from "../components/ResultCard";
-import LandingCarousel from "../components/Carousel/Carousel";
+import LandingHero from "../components/Carousel/Carousel";
 
 
 class Home extends React.Component {
@@ -66,7 +66,7 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <LandingCarousel></LandingCarousel>
+        <LandingHero/>
         <Container>
           <h3 className="center">Snow Station Report</h3>
           <TextInput

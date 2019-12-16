@@ -1,20 +1,40 @@
-.carousel .thumb img {
-    width: 100% !important;
-    height: 100% !important;
-} 
+.landing-image {
+    height: 80vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
 
-.carousel .slide img {
-    max-height: 1000px;  
+.landing-image-content {
+    height: 100%;
+    font-family: 'Archivo Black', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    padding: 40px;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.toggle-search {
+    /* display: none; */
+    background-color: aqua;
     width: 100%;
 }
 
-/* .landing-carousel{
-    height: 450px;
-} *
-/* .carousel {
-    height: 45rem;
-} */
-/* These remove the thumb image and control L/R arrow from the carousel' */
-.thumbs-wrapper{
-    display: none;
+
+@media (min-width: 650px ) {
+    .landing-image {
+        background-position: center center;
+    }
+
+    .landing-image-content {
+        align-items: flex-end;
+        justify-content: center;
+        align-items: center;
+    }
 }
