@@ -41,8 +41,6 @@ const Profile = () => {
           <p>Preferred Resort: {skier.resort_preference}</p>
         </div>
       </div>
-      {console.log(skier)}
-      {/* <code>{JSON.stringify(user, null, 2)}</code> */}
       </div>
     </Fragment>
   );

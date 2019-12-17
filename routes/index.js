@@ -3,18 +3,12 @@ const express = require("express");
 const router = express.Router();
 const apiRoutes = require("./api");
 const userController = require("../controllers/userController");
-const skiDBController = require('../controllers/skiDBController')
-
-
 
 router.route('/login')
   .post(userController.verify)
 
 router.route('/signup')
   .post(userController.create)
-
-// router.get('/:id', skiDBController.findById)
-
 
 // API Routes
 router.use("/api", apiRoutes);

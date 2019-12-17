@@ -23,12 +23,12 @@ const App = () => {
       <div>
         <Nav />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/skis" component={Skis} />
-          <Route exact path="/ski/:id" component={Ski} />
-          <PrivateRoute exact path="/profile" component={Profile} />
+          <Route exact path={`/`} component={Home} />
+          <Route exact path={`/login`} component={Login} />
+          <Route exact path={`/signup`} component={Signup} />
+          <Route exact path={`/skis`} component={Skis} />
+          <Route exact path={`/ski/:id`} component={Ski} />
+          <PrivateRoute exact path={`/profile`} component={Profile} />
           <Route component={NoMatch} />
         </Switch>
       </div>

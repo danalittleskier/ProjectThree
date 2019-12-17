@@ -13,7 +13,7 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-// Add routes, both API and view
+// Add routes
 app.use(routes);
 
 // Connect to the Mongo DB
@@ -24,7 +24,6 @@ mongoose.connect(
   "mongodb+srv://gerritt:gerritt@planet-of-scrapes-wmmte.mongodb.net/skitest?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/skiimatik");
 
 // Start the API server
 app.listen(PORT, function() {

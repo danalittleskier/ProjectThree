@@ -1,6 +1,5 @@
 import React from "react";
 import { Navbar, Icon, NavItem } from "react-materialize";
-import { Link } from 'react-router-dom';
 import { useAuth0 } from "../../react-auth0-spa";
 import './style.css';
 

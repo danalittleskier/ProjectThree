@@ -11,11 +11,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    // console.log("DB controller");
-    // console.log(req.params.id);
-    // let thisId = mongoose.Types.ObjectId(req.params.id);
-    // console.log("object type conversion")
-    // console.log(thisId);
     if (mongoose.Types.ObjectId.isValid(req.params.id)) {
     db.Ski
       .findById(req.params.id)
