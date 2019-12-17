@@ -2,7 +2,6 @@ import React from "react";
 import API from "../utils/API";
 import { Container } from "react-materialize";
 import Skis from "../components/Skis";
-import { Link } from 'react-router-dom';
 
 
 class AllSkis extends React.Component {
@@ -10,8 +9,8 @@ class AllSkis extends React.Component {
     skis: [],
     message: "",
     error: "",
-    pace: "",
-    filteredPace: []
+    conditions: "",
+    filteredConditions: []
   };
 
   handleInputChange = event => {
@@ -20,16 +19,15 @@ class AllSkis extends React.Component {
       {
         [name]: value
       },
-      () => this.filterSkisByPace()
+      () => this.filterSkisByConditions()
     );
   };
 
-  filterSkisByPace = () => {
+  filterSkisByConditions = () => {
     let filtered = this.state.skis.filter(
-      ski => ski.pace_recommendation === this.state.pace
+      ski => ski.snow_recommendation === this.state.conditions
     );
-    this.setState({ filteredPace: [...filtered] });
-    console.log(this.state.pace);
+    this.setState({ filteredConditions: [...filtered] });
   };
 
   componentDidMount() {
@@ -42,33 +40,26 @@ class AllSkis extends React.Component {
       .catch(err => console.log(err));
   };
 
-  getSkitails = event => {
-    const { id } = event.target
-    console.log(id)
-    API.getSki(id)
-    .then(res =>  console.log(res.data))
-    .catch(err => console.log(err));
-  }
 
   render() {
     return (
       <Container>
         <select
           className="browser-default"
-          name="pace"
+          name="conditions"
           onChange={this.handleInputChange}
-          value={this.state.pace}
+          value={this.state.conditions}
         >
           <option value="" disabled defaultValue>
-            Ski Pace
+            Snow Conditions
           </option>
           <option value="">All</option>
-          <option value="Slow">Slow</option>
-          <option value="Moderate">Moderate</option>
-          <option value="Fast">Fast</option>
+          <option value="Powder">Powder</option>
+          <option value="Crud">Crud</option>
+          <option value="Groomed">Groomed</option>
         </select>
-        {this.state.filteredPace.length ? (
-          this.state.filteredPace.map(result => (
+        {this.state.filteredConditions.length ? (
+          this.state.filteredConditions.map(result => (
             <div className="container center" key={result._id}>
               <Skis
                 brand={result.brand}

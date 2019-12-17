@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, TextInput, Button } from "react-materialize";
 import API from "../../utils/API";
-import './style.css'
+import "./style.css";
 
 const initialState = {
   email: "",
@@ -14,9 +14,7 @@ const initialState = {
   lastnameError: "",
   emailError: "",
   passwordError: "",
-  resortPrefError: "",
-
-
+  resortPrefError: ""
 };
 
 class Signup extends React.Component {
@@ -35,36 +33,35 @@ class Signup extends React.Component {
     let resortPrefError = "";
 
     if (!this.state.email.includes("@")) {
-      emailError = "Invalid Email Address"
+      emailError = "Invalid Email Address";
     }
     if (this.state.firstname.length < 1) {
-      firstnameError = "First Name is a required field"
+      firstnameError = "First Name is a required field";
     }
     if (this.state.lastname.length < 1) {
-      lastnameError = "Last Name is a required field"
+      lastnameError = "Last Name is a required field";
     }
     if (this.state.resortPref.length < 1) {
-      resortPrefError = "Resort Preference is a required field"
+      resortPrefError = "Resort Preference is a required field";
     }
 
-    if (emailError
-      || firstnameError
-      || lastnameError
-      // || passwordError
-      || resortPrefError
-    ) {
-      this.setState({ emailError, firstnameError, lastnameError, resortPrefError });
+    if (emailError || firstnameError || lastnameError || resortPrefError) {
+      this.setState({
+        emailError,
+        firstnameError,
+        lastnameError,
+        resortPrefError
+      });
       return false;
     }
     return true;
-  }
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-      
-    };
+    }
     API.signup({
       email: this.state.email,
       firstname: this.state.firstname,
@@ -74,12 +71,10 @@ class Signup extends React.Component {
       resort: this.state.resortPref
     })
       .then(response => {
-        console.log(response.data)
-        this.setState(initialState)
+        this.setState(initialState);
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   };
-
 
   render() {
     return (
@@ -87,9 +82,14 @@ class Signup extends React.Component {
         <h1 className="center">Sign Up!</h1>
         <Row>
           <Col s={6}>
-
-            <label htmlFor="email" className={this.state.emailError ? "errStyle" : null}>Email Address</label>
-            <TextInput className={this.state.firstnameError ? "errStyle" : null}
+            <label
+              htmlFor="email"
+              className={this.state.emailError ? "errStyle" : null}
+            >
+              Email Address
+            </label>
+            <TextInput
+              className={this.state.firstnameError ? "errStyle" : null}
               email
               placeholder="foo@bar.com"
               s={12}
@@ -100,11 +100,16 @@ class Signup extends React.Component {
               onChange={this.handleInputChange}
             />
           </Col>
-         
+
           <Col s={6}>
-            <label htmlFor="firstname" className={this.state.firstnameError ? "errStyle" : null}>First Name</label>
+            <label
+              htmlFor="firstname"
+              className={this.state.firstnameError ? "errStyle" : null}
+            >
+              First Name
+            </label>
             <TextInput
-              text
+              text={"text"}
               placeholder="FirstName"
               s={12}
               inputClassName="input-field"
@@ -115,9 +120,14 @@ class Signup extends React.Component {
             />
           </Col>
           <Col s={6}>
-            <label htmlFor="lastName" className={this.state.firstnameError ? "errStyle" : null}>Last Name</label>
+            <label
+              htmlFor="lastName"
+              className={this.state.firstnameError ? "errStyle" : null}
+            >
+              Last Name
+            </label>
             <TextInput
-              text
+              text={"text"}
               placeholder="Last Name"
               s={12}
               inputClassName="input-field"
@@ -128,9 +138,14 @@ class Signup extends React.Component {
             />
           </Col>
           <Col s={6}>
-            <label htmlFor="resort" className={this.state.Error ? "errStyle" : null}>Resort Preference</label>
+            <label
+              htmlFor="resort"
+              className={this.state.Error ? "errStyle" : null}
+            >
+              Resort Preference
+            </label>
             <TextInput
-              text
+              text={"text"}
               placeholder="Resort Preference"
               s={12}
               inputClassName="input-field"
@@ -139,12 +154,14 @@ class Signup extends React.Component {
               value={this.state.resortPref}
               onChange={this.handleInputChange}
             />
-
           </Col>
           <Col s={6}>
-
-         
-            <label htmlFor="gender" className={this.state.genderError ? "errStyle" : null}>Gender</label>
+            <label
+              htmlFor="gender"
+              className={this.state.genderError ? "errStyle" : null}
+            >
+              Gender
+            </label>
             <select
               className="browser-default"
               name="gender"
@@ -153,14 +170,19 @@ class Signup extends React.Component {
             >
               <option value="" disabled defaultValue>
                 Gender
-                </option>
+              </option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="">All</option>
             </select>
           </Col>
           <Col s={6}>
-            <label htmlFor="level" className={this.state.genderError ? "errStyle" : null}>Skier Level</label>
+            <label
+              htmlFor="level"
+              className={this.state.genderError ? "errStyle" : null}
+            >
+              Skier Level
+            </label>
             <select
               className="browser-default"
               name="level"
@@ -170,28 +192,21 @@ class Signup extends React.Component {
             >
               <option value="" disabled defaultValue>
                 Skier Level
-                </option>
+              </option>
               <option value="Beginner">Beginner</option>
               <option value="Intermediate">Intermediate</option>
               <option value="Advanced">Advanced</option>
               <option value="Expert">Expert</option>
             </select>
-            {/* <TextInput
-              text
-              placeholder="Skier Level"
-              s={12}
-              inputClassName="input-field"
-              id="level"
-              name="level"
-              value={this.state.level}
-              onChange={this.handleInputChange}
-            /> */}
           </Col>
         </Row>
         <div style={{ color: "red" }}>
-          {this.state.firstnameError}<br />
-          {this.state.lastnameError}<br />
-          {this.state.emailError}<br />
+          {this.state.firstnameError}
+          <br />
+          {this.state.lastnameError}
+          <br />
+          {this.state.emailError}
+          <br />
           {this.state.passwordError}
         </div>
         <Button onClick={this.handleFormSubmit}>Submit</Button>

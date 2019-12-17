@@ -17,18 +17,16 @@ export default {
   saveSki: function(skiData) {
     return axios.post("/api/skis", skiData);
   },
-  getRecommendedSki: (snowtype) => 
-  {
-    return axios.post("/api/ski", {snowtype: snowtype})
+  getRecommendedSki: snowtype => {
+    return axios.post("/api/ski", { snowtype: snowtype });
   },
-  getSkiByPace: (pace) => 
-  {
-    return axios.post(`/api/${pace}`, {pace: pace})
+  getSkiByPace: pace => {
+    return axios.post(`/api/${pace}`, { pace: pace });
   },
-  login: ({email, password}) => axios.post("/login", {email, password}),
-  signup: ({email, firstname, lastname, gender, level, resort })  => axios.post('/signup', {email, firstname, lastname, gender, level, resort}),
-  getGeocode: function(city){
-    console.log("city "+city);
-    return axios.post("/api/geocode", {city: city});
-  }
+  getGeocode: function(city) {
+    return axios.post("/api/geocode", { city: city });
+  },
+  login: ({ email, password }) => axios.post("/login", { email, password }),
+  signup: ({ email, firstname, lastname, gender, level, resort }) =>
+    axios.post("/signup", { email, firstname, lastname, gender, level, resort })
 };

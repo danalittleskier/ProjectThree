@@ -9,7 +9,6 @@ function ResultCard({ station, distance, elevation, snowpack, newsnow, temperatu
       <div className="col s12 m12">
         <div className="card medium">
           <div className="card-image">
-            {/* {console.log(recommendedSki)} */}
             <img src={recommendedSki.image} alt={recommendedSki.model}/>
             <span className="card-title">{recommendedSki.brand} - {recommendedSki.model}</span>
           </div>

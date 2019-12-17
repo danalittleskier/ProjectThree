@@ -23,7 +23,6 @@ class Ski extends Component {
     return (
       <Container>
         <Row>
-          {console.log(this.state.ski)}
           <div className="col s12 m12 card">
             <div className="">
               <div className="card-image">
