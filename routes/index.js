@@ -13,7 +13,7 @@ router.route('/login')
 router.route('/signup')
   .post(userController.create)
 
-router.get('/:id', skiDBController.findById)
+// router.get('/:id', skiDBController.findById)
 
 
 // API Routes
