@@ -63,6 +63,7 @@ class Signup extends React.Component {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
+      
     };
     API.signup({
       email: this.state.email,
@@ -70,7 +71,7 @@ class Signup extends React.Component {
       lastname: this.state.lastname,
       gender: this.state.gender,
       level: this.state.level,
-      resort: this.state.resort
+      resort: this.state.resortPref
     })
       .then(response => {
         console.log(response.data)
@@ -127,32 +128,23 @@ class Signup extends React.Component {
             />
           </Col>
           <Col s={6}>
-            <label htmlFor="resort" className={this.state.Error ? "errStyle" : null}>Last Name</label>
+            <label htmlFor="resort" className={this.state.Error ? "errStyle" : null}>Resort Preference</label>
             <TextInput
               text
               placeholder="Resort Preference"
               s={12}
               inputClassName="input-field"
-              id="resort"
-              name="resort"
-              value={this.state.resort}
+              id="resortPref"
+              name="resortPref"
+              value={this.state.resortPref}
               onChange={this.handleInputChange}
             />
 
           </Col>
           <Col s={6}>
 
-            {/* <TextInput
-              text
-              placeholder="Gender"
-              s={12}
-              inputClassName="input-field"
-              id="gender"
-              name="gender"
-              value={this.state.gender}
-              onChange={this.handleInputChange}
-            /> */}
-            <label htmlFor="resort" className={this.state.genderError ? "errStyle" : null}>Gender</label>
+         
+            <label htmlFor="gender" className={this.state.genderError ? "errStyle" : null}>Gender</label>
             <select
               className="browser-default"
               name="gender"
@@ -168,10 +160,10 @@ class Signup extends React.Component {
             </select>
           </Col>
           <Col s={6}>
-            <label htmlFor="resort" className={this.state.genderError ? "errStyle" : null}>Skier Level</label>
+            <label htmlFor="level" className={this.state.genderError ? "errStyle" : null}>Skier Level</label>
             <select
               className="browser-default"
-              name="skierLevel"
+              name="level"
               onChange={this.handleInputChange}
               value={this.state.skierLevel}
               placeholder="Skier Level"
