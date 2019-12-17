@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const bookRoutes = require("./books");
 const skiRoutes = require("./skis");
 const detailSkiRoutes = require("./ski");
 const geocode = require("./geocode");
@@ -7,7 +6,6 @@ const test = require("./test");
 const jwt = require('jsonwebtoken');
 
 // Book routes
-router.use("/books", bookRoutes);
 router.use("/skis", skiRoutes);
 router.use("/geocode", geocode);
 router.use("/ski", detailSkiRoutes);
