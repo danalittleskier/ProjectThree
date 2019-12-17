@@ -2,7 +2,7 @@ import React from "react";
 import API from "../utils/API";
 import { TextInput, Container, Button } from 'react-materialize';
 import ResultCard from "../components/ResultCard";
-import LandingHero from "../components/Carousel/Carousel";
+import LandingHero from "../components/LandingHero/LandingHero";
 
 
 class Home extends React.Component {
