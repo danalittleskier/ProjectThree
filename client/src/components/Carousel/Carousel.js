@@ -12,16 +12,17 @@ const LandingHero = () => {
 
         <div className="landing-image" style={{ backgroundImage: `url(${imageUrl})` }}>
             <div className="landing-image-content">
-                <h1>SKIIMATIC</h1>
-                <p>Earth's First Predictive Ski Use Algorithm</p>
-                <div className='btn-container'>
-                    <Button>Login</Button>
-                    <Button>Sign Up</Button>
-                    <Button>Search Snow Stations</Button>
-                    <div className="toggle-search">
-                        <TextInput
-                            placeholder="Enter your location"
-                        />
+                <div className="logo-container">
+                    <h1>SKIIMATIC</h1>
+                    <p>Earth's First Predictive Ski Use Algorithm</p>
+                    <div className='btn-container'>
+                        <Button>Login</Button>
+                        <Button>Sign Up</Button>
+                        <div className="toggle-search">
+                            <TextInput
+                                placeholder="Enter your location"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

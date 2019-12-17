@@ -10,7 +10,7 @@ function Nav() {
   return (
     <Navbar
       className="indigo"
-      brand={<li className="brand-logo app-title center">SKIIMATIK</li>}
+      brand={<li className="brand-logo app-title right">II</li>}
       centerLogo
       alignLinks="left"
       menuIcon={<Icon>menu</Icon>}
