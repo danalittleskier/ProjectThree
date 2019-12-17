@@ -72,8 +72,9 @@ class Signup extends React.Component {
     })
       .then(response => {
         this.setState(initialState);
+        this.props.history.push('/profile')
       })
-      .catch(err => console.log(err));
+      .catch(err => console.error(err));
   };
 
   render() {
@@ -81,7 +82,7 @@ class Signup extends React.Component {
       <Container className="form-container">
         <h1 className="center">Sign Up!</h1>
         <Row>
-          <Col s={6}>
+          <Col s={12}>
             <label
               htmlFor="email"
               className={this.state.emailError ? "errStyle" : null}
@@ -209,7 +210,7 @@ class Signup extends React.Component {
           <br />
           {this.state.passwordError}
         </div>
-        <Button onClick={this.handleFormSubmit}>Submit</Button>
+        <Button className="indigo" onClick={this.handleFormSubmit}>Submit</Button>
       </Container>
     );
   }

@@ -10,6 +10,7 @@ function Nav() {
     <Navbar
       className="indigo"
       brand={<li className="brand-logo app-title right">II</li>}
+      fixed
       centerLogo
       alignLinks="left"
       menuIcon={<Icon>menu</Icon>}
