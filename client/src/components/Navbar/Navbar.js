@@ -31,14 +31,10 @@ function Nav() {
       <NavItem href="/signup">Signup</NavItem>
       <NavItem href="/skis">Skis</NavItem>
 
-
       {!isAuthenticated && (
         <NavItem onClick={() => loginWithRedirect({})}>Log in</NavItem>
       )}
-
       {isAuthenticated && <NavItem onClick={() => logout()}>Log out</NavItem>}
-
-      {isAuthenticated && <NavItem href="/">Home</NavItem>}
       {isAuthenticated && <NavItem href="/profile">Profile</NavItem>}
 
 
