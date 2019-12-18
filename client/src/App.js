@@ -7,6 +7,7 @@ import Skis from "./pages/AllSkis"
 // import Login from "./pages/Login";
 import Signup from "./pages//Signup/Signup";
 import Nav from "./components/Navbar/Navbar";
+import Foot from "./components/Footer/Footer";
 import Profile from "./components/Profile";
 import PrivateRoute from "./components/PrivateRoute";
 import { useAuth0 } from "./react-auth0-spa";
@@ -31,6 +32,7 @@ const App = () => {
           <PrivateRoute exact path={`/profile`} component={Profile} />
           <Route component={NoMatch} />
         </Switch>
+        <Foot/>
       </div>
     </Router>
   );

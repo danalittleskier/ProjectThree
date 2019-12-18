@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Container, Row } from "react-materialize";
 import API from "../utils/API";
+import './assets/app-styles.css';
+
 
 class Ski extends Component {
   state = {

@@ -2,8 +2,9 @@ import React from "react";
 import API from "../utils/API";
 import { TextInput, Container, Button } from "react-materialize";
 import ResultCard from "../components/ResultCard";
-import Foot from "../components/Footer/Footer";
 import LandingHero from "../components/LandingHero/LandingHero";
+import './assets/app-styles.css';
+
 
 class Home extends React.Component {
   state = {
@@ -13,7 +14,7 @@ class Home extends React.Component {
     error: ""
   };
 
-  // set state to value of input
+  //set state to value of input
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -97,7 +98,6 @@ class Home extends React.Component {
               <h5>{this.state.message}</h5>
             )}
         </Container>
-        <Foot/>
       </>
     );
   }
