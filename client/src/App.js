@@ -11,12 +11,16 @@ import Foot from "./components/Footer/Footer";
 import Profile from "./components/Profile";
 import PrivateRoute from "./components/PrivateRoute";
 import { useAuth0 } from "./react-auth0-spa";
+import Loading from "./components/Loading";
 
 const App = () => {
   const { loading } = useAuth0();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="center">
+      
+      <Loading />
+    </div>;
   }
 
   return (
