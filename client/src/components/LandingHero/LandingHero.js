@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import API from "../../utils/API";
 import { Button, TextInput } from 'react-materialize';
 import desktopImage from "./assets/images/powder-ski.jpg";
-
+import logo from "./assets/images/logo.png"
 import mobileImage from "./assets/images/tour-mobile.jpg";
 import "./assets/style.css";
 
@@ -17,8 +17,9 @@ const LandingHero = (search) => {
         <div className="landing-image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imageUrl})` }}>
             <div className="landing-image-content">
                 <div className="logo-container">
-                    <h1>SKIIMATIC</h1>
-                    <p>Earth's First Predictive Ski Use Algorithm</p>
+                    {/* <h1>SKIIMATIC</h1>
+                    <p>Earth's First Predictive Ski Use Algorithm</p> */}
+                    <img src={logo} alt="skiimatic"/>
                     <div className='search-container'>
                         {/* <TextInput
                             placeholder="enter a city to get the closest snow station report"
