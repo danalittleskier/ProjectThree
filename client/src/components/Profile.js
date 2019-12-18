@@ -4,13 +4,16 @@ import React, { Fragment, useState, useEffect } from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import Skis from "../components/Skis";
 import API from "../utils/API";
+import Loading from "./Loading";
 
 const Profile = () => {
   const { loading, user } = useAuth0();
   const [skier, setSkier] = useState(user);
   
   if (loading || !user) {
-    return <div>Loading...</div>;
+    return <div className="center">
+      <Loading />
+    </div>;
   }
 
   const getSkier = async email => {
