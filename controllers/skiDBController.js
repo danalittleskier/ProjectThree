@@ -40,8 +40,8 @@ module.exports = {
   },
   getCustomSkis: function(req, res) {
     db.Ski
-      .findOne({ level: req.body.level, gender: req.body.gender })
-      .then(dbModel =>{       
+      .findOne({ pace_recommendation: req.body.level, gender: req.body.gender })
+      .then(dbModel =>{      
         res.json(dbModel)
       })
       .catch(err => res.status(422).json(err));
