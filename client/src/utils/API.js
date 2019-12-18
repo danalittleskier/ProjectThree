@@ -23,6 +23,9 @@ export default {
   getSkiByPace: pace => {
     return axios.post(`/api/${pace}`, { pace: pace });
   },
+  getCustomSkis: (level, gender) => {
+    return axios.post('api/customskis', {level: level, gender: gender});
+  },
   getGeocode: function(city) {
     return axios.post("/api/geocode", { city: city });
   },
