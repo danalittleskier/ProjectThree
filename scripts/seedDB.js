@@ -3,15 +3,15 @@ const db = require("../models");
 
 // This file empties the Skis collection and inserts the books below
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/skiimatik"
-);
-
 // mongoose.connect(
-//   "mongodb+srv://gerritt:gerritt@planet-of-scrapes-wmmte.mongodb.net/skitest?retryWrites=true&w=majority",
-//   { useNewUrlParser: true, useUnifiedTopology: true }
+//   process.env.MONGODB_URI ||
+//   "mongodb://localhost/skiimatik"
 // );
+
+mongoose.connect(
+  "mongodb+srv://gerritt:gerritt@planet-of-scrapes-wmmte.mongodb.net/skitest?retryWrites=true&w=majority",
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
 
 
 const skiSeed = [
@@ -23,7 +23,7 @@ const skiSeed = [
     snow_recommendation: "Powder",
     turns_recommendation: "Large",
     pace_recommendation: "Fast",
-    gender: "Men",
+    gender: "Male",
     width: 108,
     length: 185,
     radius: 27,
@@ -44,7 +44,7 @@ const skiSeed = [
     snow_recommendation: "Groomed",
     turns_recommendation: "Large",
     pace_recommendation: "Fast",
-    gender: "Men",
+    gender: "Male",
     width: 98,
     length: 180,
     radius: 18,
@@ -66,7 +66,7 @@ const skiSeed = [
     snow_recommendation: "Groomed",
     turns_recommendation: "Medium",
     pace_recommendation: "Moderate",
-    gender: "Men",
+    gender: "Male",
     width: 88,
     length: 180,
     radius: 19,
@@ -87,7 +87,7 @@ const skiSeed = [
     snow_recommendation: "Crud",
     turns_recommendation: "Large",
     pace_recommendation: "Fast",
-    gender: "Men",
+    gender: "Male",
     width: 114,
     length: 188,
     radius: 21,
@@ -108,7 +108,7 @@ const skiSeed = [
     snow_recommendation: "Groomed",
     turns_recommendation: "Medium",
     pace_recommendation: "Fast",
-    gender: "Men",
+    gender: "Male",
     width: 102,
     length: 180,
     radius: 18,
@@ -130,7 +130,7 @@ const skiSeed = [
     snow_recommendation: "Crud",
     turns_recommendation: "Medium",
     pace_recommendation: "Moderate",
-    gender: "Men",
+    gender: "Male",
     width: 95,
     length: 180,
     radius: 23,
@@ -152,7 +152,7 @@ const skiSeed = [
     snow_recommendation: "Powder",
     turns_recommendation: "Large",
     pace_recommendation: "Fast",
-    gender: "Men",
+    gender: "Male",
     width: 105,
     length: 180,
     radius: 23,
@@ -173,15 +173,15 @@ const skiSeed = [
     snow_recommendation: "Groomed",
     turns_recommendation: "Short",
     pace_recommendation: "Slow",
-    gender: "Women",
+    gender: "Female",
     width: 82,
     length: 162,
     radius: 13,
     tip: 126,
     tail: 108,
     description:
-      `Blizzard’s Alight 8.2 Ti is a women’s all-mountain frontside ski that tackles ice, groomers and variable 
-      snow with the same ease and sense of fun. Utlizing women's specific molds to access the sweet spot of the ski, 
+      `Blizzard’s Alight 8.2 Ti is a Female’s all-mountain frontside ski that tackles ice, groomers and variable 
+      snow with the same ease and sense of fun. Utlizing Female's specific molds to access the sweet spot of the ski, 
       an 82 mm waist with 4 mm rocker all combine to offer superior edge grip with a steady ride. 
       A Titanal laminate gives this ski torsional stiffness and transfers your power directly onto the piste.`
   },
@@ -193,7 +193,7 @@ const skiSeed = [
     snow_recommendation: "Groomed",
     turns_recommendation: "Medium",
     pace_recommendation: "Moderate",
-    gender: "Women",
+    gender: "Female",
     width: 98,
     length: 173,
     radius: 15,
@@ -201,7 +201,7 @@ const skiSeed = [
     tail: 119,
     description:
       `If you are looking for a ski that can float through powder, bust through chopped up crud or carve on the groomers, 
-      the Black Pearl 98 is the ski for you. With a 98 mm waist and a women's specific Carbon Flipcore W.S.D. 
+      the Black Pearl 98 is the ski for you. With a 98 mm waist and a Female's specific Carbon Flipcore W.S.D. 
       construction, the Black Pearl 98 is light and easy with exceptional versatility and performance for any terrain or snow condition you can throw at it.`
   },
   {
@@ -212,15 +212,15 @@ const skiSeed = [
     snow_recommendation: "Groomed",
     turns_recommendation: "Medium",
     pace_recommendation: "Moderate",
-    gender: "Women",
+    gender: "Female",
     width: 88,
     length: 173,
     radius: 16,
     tip: 127,
     tail: 111,
     description:
-      `As the world's best selling women's ski, the Black Pearl 88 shines as the versatile, 
-      all-around ski offering the ultimate ride through all types of terrain. With an 88 mm waist, and a women's specific Carbon Flipcore W.S.D. construction, 
+      `As the world's best selling Female's ski, the Black Pearl 88 shines as the versatile, 
+      all-around ski offering the ultimate ride through all types of terrain. With an 88 mm waist, and a Female's specific Carbon Flipcore W.S.D. construction, 
       the Black Pearl 88 performs on groomers, in the trees, through bumps and in powder. Its lightweight construction, early rise tip and tail, and 
       camber underfoot make this ski a go-to for ripping female skiers as well as those looking for the confidence to up their game.`
   },
@@ -233,7 +233,7 @@ const skiSeed = [
     snow_recommendation: "Crud",
     turns_recommendation: "Large",
     pace_recommendation: "Fast",
-    gender: "Women",
+    gender: "Female",
     width: 112,
     length: 180,
     radius: 19,
@@ -241,7 +241,7 @@ const skiSeed = [
     tail: 130,
     description:
       `Light and playful, yet stable and confidence inspiring, the Sheeva 11, with Carbon Flipcore D.R.T Technology, 
-      a women's specific design and a progressive shape and rocker profile, is the answer for lady shredders of all 
+      a Female's specific design and a progressive shape and rocker profile, is the answer for lady shredders of all 
       types seeking the ultimate powder ski. 
       Ski better and have more fun while seeking out those special, pristine untracked stashes on the mountain.`
   },
@@ -253,7 +253,7 @@ const skiSeed = [
     snow_recommendation: "Crud",
     turns_recommendation: "Medium",
     pace_recommendation: "Fast",
-    gender: "Women",
+    gender: "Female",
     width: 102,
     length: 180,
     radius: 17,
@@ -263,7 +263,7 @@ const skiSeed = [
       `The Sheeva 10 is fun and forgiving while offering up stability and versatility. 
       From pow to packed pow and anything in between, this ski will make any turn shape 
       at any speed in any terrain effortless. Carbon Flipcore D.R.T. and W.S.D. – 
-      Women’s Specific Design - construction combine to deliver a confidence inspiring, elevated skiing experience. 
+      Female’s Specific Design - construction combine to deliver a confidence inspiring, elevated skiing experience. 
       Why work hard when you can play harder?`
   }
 ];
