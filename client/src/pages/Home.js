@@ -2,6 +2,7 @@ import React from "react";
 import API from "../utils/API";
 import { TextInput, Container, Button } from "react-materialize";
 import ResultCard from "../components/ResultCard";
+import Foot from "../components/Footer/Footer";
 import LandingHero from "../components/LandingHero/LandingHero";
 
 class Home extends React.Component {
@@ -64,13 +65,13 @@ class Home extends React.Component {
         </LandingHero>
         <Container>
           <h3 className="center">Snow Station Report</h3>
-          {/* <TextInput
+          <TextInput
             placeholder="enter a city to get the closest snow station report"
             onChange={this.handleInputChange}
             name="search"
             id="search"
             value={this.state.search}
-          /> */}
+          />
           <Button onClick={this.handleSearchSubmit}>Submit</Button>
           {this.state.results.length ? (
             <div className="container center">
@@ -96,6 +97,7 @@ class Home extends React.Component {
               <h5>{this.state.message}</h5>
             )}
         </Container>
+        <Foot/>
       </>
     );
   }
