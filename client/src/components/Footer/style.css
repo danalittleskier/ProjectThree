@@ -1,0 +1,16 @@
+.person {
+    transition: 0.3s
+}
+
+.person:hover {
+    color: #B8C5D6 !important;
+    letter-spacing: 1px;
+}
+
+.gh {
+    transition: 0.3s
+}
+
+.gh:hover {
+    color: #B8C5D6 !important;
+}
