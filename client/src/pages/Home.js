@@ -3,6 +3,8 @@ import API from "../utils/API";
 import { TextInput, Container, Button } from "react-materialize";
 import ResultCard from "../components/ResultCard";
 import LandingHero from "../components/LandingHero/LandingHero";
+import './assets/app-styles.css';
+
 
 class Home extends React.Component {
   state = {
@@ -12,7 +14,7 @@ class Home extends React.Component {
     error: ""
   };
 
-  // set state to value of input
+  //set state to value of input
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -59,7 +61,9 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <LandingHero />
+        <LandingHero>
+       
+        </LandingHero>
         <Container>
           <h3 className="center">Snow Station Report</h3>
           <TextInput
@@ -83,7 +87,7 @@ class Home extends React.Component {
                   newsnow={result.data[1]["Change In Snow Depth (in)"]}
                   temperature={
                     result.data[1][
-                      "Observed Air Temperature (degrees farenheit)"
+                    "Observed Air Temperature (degrees farenheit)"
                     ]
                   }
                   recommendedSki={result.recommendedSki}
@@ -91,8 +95,8 @@ class Home extends React.Component {
               ))}
             </div>
           ) : (
-            <h5>{this.state.message}</h5>
-          )}
+              <h5>{this.state.message}</h5>
+            )}
         </Container>
       </>
     );

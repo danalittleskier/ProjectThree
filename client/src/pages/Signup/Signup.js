@@ -1,7 +1,8 @@
 import React from "react";
 import { Container, Row, Col, TextInput, Button } from "react-materialize";
 import API from "../../utils/API";
-import "./style.css";
+import '../assets/app-styles.css';
+
 
 const initialState = {
   email: "",

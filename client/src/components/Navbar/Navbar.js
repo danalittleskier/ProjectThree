@@ -8,10 +8,9 @@ function Nav() {
 
   return (
     <Navbar
-      className="indigo"
+      className="blue-grey darken-3"
       brand={<li className="brand-logo app-title right">II</li>}
       fixed
-      centerLogo
       alignLinks="left"
       menuIcon={<Icon>menu</Icon>}
       options={{
