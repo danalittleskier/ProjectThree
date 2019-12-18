@@ -73,7 +73,7 @@ class Home extends React.Component {
             id="search"
             value={this.state.search}
           />
-          <Button onClick={this.handleSearchSubmit}>Submit</Button>
+          <Button className="indigo" onClick={this.handleSearchSubmit}>Submit</Button>
           {this.state.results.length ? (
             <div className="container center">
               {console.log(this.state.results)}

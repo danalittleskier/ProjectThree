@@ -1,3 +1,21 @@
 .snowflake {
-    background-image: url('./images/whitsnowflakes.jpg');
+    background-image: url('./images/blue-snow.jpeg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+.card {
+    opacity: 0.8;
+    transition: 0.4s;
+}
+
+.card:hover {
+    opacity: 1;
+}
+
+.signup-submit {
+    margin-bottom: 2%;
+}
+

@@ -211,7 +211,7 @@ class Signup extends React.Component {
           <br />
           {this.state.passwordError}
         </div>
-        <Button className="indigo" onClick={this.handleFormSubmit}>Submit</Button>
+        <Button className="indigo signup-submit" onClick={this.handleFormSubmit}>Submit</Button>
       </Container>
     );
   }
