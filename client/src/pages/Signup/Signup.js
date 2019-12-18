@@ -62,20 +62,20 @@ class Signup extends React.Component {
     event.preventDefault();
     const isValid = this.validate();
     if (isValid) {
-    }
-    API.signup({
-      email: this.state.email,
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      gender: this.state.gender,
-      level: this.state.level,
-      resort: this.state.resortPref
-    })
-      .then(response => {
-        this.setState(initialState);
-        this.props.history.push('/profile')
+      API.signup({
+        email: this.state.email,
+        firstname: this.state.firstname,
+        lastname: this.state.lastname,
+        gender: this.state.gender,
+        level: this.state.level,
+        resort: this.state.resortPref
       })
-      .catch(err => console.error(err));
+        .then(() => {
+          this.setState(initialState);
+          this.props.history.push('/profile')
+        })
+        .catch(err => console.error(err));
+    }
   };
 
   render() {
