@@ -38,6 +38,14 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
+  getCustomSkis: function(req, res) {
+    db.Ski
+      .findOne({ pace_recommendation: req.body.level, gender: req.body.gender })
+      .then(dbModel =>{      
+        res.json(dbModel)
+      })
+      .catch(err => res.status(422).json(err));
+  },
   remove: function(req, res) {
     db.Ski
       .findById({ _id: req.params.id })

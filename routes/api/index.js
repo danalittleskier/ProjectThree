@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const skiRoutes = require("./skis");
 const detailSkiRoutes = require("./ski");
+const customskis = require("./customskis");
 const geocode = require("./geocode");
 const jwt = require('jsonwebtoken');
 
@@ -8,6 +9,7 @@ const jwt = require('jsonwebtoken');
 router.use("/ski", detailSkiRoutes);
 router.use("/skis", skiRoutes);
 router.use("/geocode", geocode);
+router.use("/customskis", customskis);
 
 // router.use((req, res, next) => {
 //   console.log(req.headers);

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 // import API from "../../utils/API";
 // import { Button, TextInput } from 'react-materialize';
+=======
+>>>>>>> c60e6ff8a360e67b14671cbfe1c1499a8fb89626
 import desktopImage from "./assets/images/powder-ski.jpg";
 import logo from "./assets/images/logo.png"
 import mobileImage from "./assets/images/tour-mobile.jpg";
@@ -15,7 +18,11 @@ const LandingHero = (handleSearchSubmit) => {
     
     return (
 
+<<<<<<< HEAD
         <div className="landing-image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${imageUrl})` }}>
+=======
+        <div className="landing-image" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${imageUrl})` }}>
+>>>>>>> c60e6ff8a360e67b14671cbfe1c1499a8fb89626
             <div className="landing-image-content">
                 <div className="logo-container">
                     <img src={logo} style={{ width: "300px" }} alt="skiimatic" />
