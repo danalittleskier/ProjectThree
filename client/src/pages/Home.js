@@ -59,16 +59,18 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <LandingHero />
+        <LandingHero>
+       
+        </LandingHero>
         <Container>
           <h3 className="center">Snow Station Report</h3>
-          <TextInput
+          {/* <TextInput
             placeholder="enter a city to get the closest snow station report"
             onChange={this.handleInputChange}
             name="search"
             id="search"
             value={this.state.search}
-          />
+          /> */}
           <Button onClick={this.handleSearchSubmit}>Submit</Button>
           {this.state.results.length ? (
             <div className="container center">
@@ -83,7 +85,7 @@ class Home extends React.Component {
                   newsnow={result.data[1]["Change In Snow Depth (in)"]}
                   temperature={
                     result.data[1][
-                      "Observed Air Temperature (degrees farenheit)"
+                    "Observed Air Temperature (degrees farenheit)"
                     ]
                   }
                   recommendedSki={result.recommendedSki}
@@ -91,8 +93,8 @@ class Home extends React.Component {
               ))}
             </div>
           ) : (
-            <h5>{this.state.message}</h5>
-          )}
+              <h5>{this.state.message}</h5>
+            )}
         </Container>
       </>
     );
