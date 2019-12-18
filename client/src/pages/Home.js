@@ -61,8 +61,10 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <LandingHero>
-       
+        <LandingHero
+          
+        >
+    
         </LandingHero>
         <Container>
           <h3 className="center">Snow Station Report</h3>
