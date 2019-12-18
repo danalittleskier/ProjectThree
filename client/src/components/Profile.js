@@ -12,7 +12,7 @@ const Profile = () => {
   if (loading || !user) {
     return <div>Loading...</div>;
   }
-  
+
   const getSkier = async email => {
     let newSkier = await API.login({ email: email });
 
@@ -62,7 +62,6 @@ const Profile = () => {
         </div>
       </div>
 
-        {/* {console.log(skier.ski)} */}
         {skier.ski ? (
           <div className="row">
           <h6>Custom Ski Recommendation {skier.ski.brand} {skier.ski.model} </h6>
