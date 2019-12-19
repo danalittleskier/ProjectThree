@@ -9,8 +9,10 @@ const initialState = {
   password: "",
   firstname: "",
   lastname: "",
+  gender: "Female",
+  level: "Beginner",
+  skierLevel: "",
   resortPref: "",
-  level: "",
   firstnameError: "",
   lastnameError: "",
   emailError: "",
@@ -32,6 +34,8 @@ class Signup extends React.Component {
     let lastnameError = "";
     let emailError = "";
     let resortPrefError = "";
+    let genderError = "";
+    let levelError = "";
 
     if (!this.state.email.includes("@")) {
       emailError = "Invalid Email Address";
@@ -45,13 +49,30 @@ class Signup extends React.Component {
     if (this.state.resortPref.length < 1) {
       resortPrefError = "Resort Preference is a required field";
     }
+    if (this.state.gender === "gender" || "") {
+      console.log(this.state.gender.value);
+      
+      genderError = "Gender is a required field";
+      console.log("Gender is a required field");
+      
+    }
+    if (this.state.level === "level" || "") {
+      console.log(this.state.level.value);
 
-    if (emailError || firstnameError || lastnameError || resortPrefError) {
+      levelError = "Skiier Level is a required field";
+      console.log("Skiier Level is a required field");
+
+    }
+    
+
+    if (emailError || firstnameError || lastnameError || resortPrefError || genderError || levelError) {
       this.setState({
         emailError,
         firstnameError,
         lastnameError,
-        resortPrefError
+        resortPrefError,
+        genderError,
+        levelError
       });
       return false;
     }
@@ -124,7 +145,7 @@ class Signup extends React.Component {
           <Col s={6}>
             <label
               htmlFor="lastName"
-              className={this.state.firstnameError ? "errStyle" : null}
+              className={this.state.lastnameError ? "errStyle" : null}
             >
               Last Name
             </label>
@@ -210,6 +231,11 @@ class Signup extends React.Component {
           {this.state.emailError}
           <br />
           {this.state.passwordError}
+          <br />
+          {this.state.genderError}
+          <br />
+          {this.state.levelError}
+
         </div>
         <Button className="indigo signup-submit" onClick={this.handleFormSubmit}>Submit</Button>
       </Container>
