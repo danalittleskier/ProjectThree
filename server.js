@@ -21,7 +21,7 @@ app.use(routes);
 // { useNewUrlParser: true, useUnifiedTopology: true });
 
 mongoose.connect(
-  "mongodb+srv://gerritt:gerritt@planet-of-scrapes-wmmte.mongodb.net/skitest?retryWrites=true&w=majority",
+  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@planet-of-scrapes-wmmte.mongodb.net/skitest?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 

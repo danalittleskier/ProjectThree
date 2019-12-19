@@ -11,7 +11,7 @@ class Home extends React.Component {
     search: "",
     results: [],
     recommendedSki: {},
-    error: ""
+    error: "",
   };
 
   //set state to value of input
@@ -61,21 +61,26 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <LandingHero>
-       
+        <LandingHero
+
+        >
+
         </LandingHero>
         <Container>
           <h3 className="center">Snow Station Report</h3>
-          <TextInput
-            placeholder="enter a city to get the closest snow station report"
-            onChange={this.handleInputChange}
-            name="search"
-            id="search"
-            value={this.state.search}
-          />
-          <Button className="indigo" onClick={this.handleSearchSubmit}>Submit</Button>
+          <div id="search">
+            <TextInput
+              placeholder="enter a city to get the closest snow station report"
+              onChange={this.handleInputChange}
+              name="search"
+              id="search"
+              value={this.state.search}
+            />
+            <Button className="indigo" onClick={this.handleSearchSubmit}>Submit</Button>
+          </div>
           {this.state.results.length ? (
             <div className="container center">
+              <h3 id="results">Results</h3>
               {console.log(this.state.results)}
               {this.state.results.map(result => (
                 <ResultCard

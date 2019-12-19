@@ -25,8 +25,11 @@ body {
 .loading svg {
     height: 25em;
     margin-top: 30%;
-    
-  }
+ }
+
 .fullsize {
     height: 900px;
 }
+
+
+

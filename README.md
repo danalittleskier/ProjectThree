@@ -39,4 +39,4 @@ Controllers are used to pass DB search methods to corresponding routes, to pass 
 
 * **Gerritt Black** - *routing, server logic, React, styling, database* - [gmocore](https://github.com/gmocore)
 * **Dana Alexandrescu** - *routing, controllers, models, React, Auth0, geocode API* - [danalittleskier](https://github.com/danalittleskier)
-* **Trevor Brown** - *components, React, styling, validation* - [tr3vbr0w](https://github.com/tr3vbr0w)
+* **Trevor Brown** - *components, React, styling, validation, landing page design* - [tr3vbr0w](https://github.com/tr3vbr0w)
