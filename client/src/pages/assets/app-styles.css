@@ -1,3 +1,6 @@
+body {
+    background-color: lightgray;
+}
 .snowflake {
     background-image: url('./images/blue-snow.jpeg');
     height: 100%;
@@ -24,3 +27,6 @@
     margin-top: 30%;
     
   }
+.fullsize {
+    height: 900px;
+}

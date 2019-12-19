@@ -3,13 +3,10 @@ import './assets/app-styles.css';
 
 function NoMatch() {
   return (
-    <div>
-      <h1>404 Page Not Found</h1>
-      <h1>
-        <span role="img" aria-label="Face With Rolling Eyes Emoji">
-          🙄
-        </span>
-      </h1>
+    <div className="fullsize">
+      <h3>This route is not available ...try the <a href="/">home page</a></h3>
+    
+      
     </div>
   );
 }
