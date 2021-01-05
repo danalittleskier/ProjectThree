@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.6.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
